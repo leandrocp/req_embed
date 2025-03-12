@@ -1,18 +1,30 @@
 defmodule ReqEmbed do
-  @moduledoc """
-  oEmbed for Req
+  @external_resource "README.md"
 
-  Supports [discovery](https://oembed.com/#section4) and #{length(ReqEmbed.Providers.all())} providers.
-  """
+  @moduledoc "README.md"
+             |> File.read!()
+             |> String.split("<!-- MDOC -->")
+             |> Enum.fetch!(1)
 
   @doc """
   Attach the oEmbed plugin into Req.
 
   ## Options
 
-    * `:query` (t:map/0) - Defaults to `%{}`. The query parameters to be sent to the oEmbed endpoint.
+    * `:query` (`t:map/0`) - Defaults to `%{}`. The query parameters to be sent to the oEmbed endpoint,
+      like `:maxwidth`, `:maxheight`, and others supported by the provider.
       The parameters `:url` and `:format` are managed by the plugin, you can't override them.
       See section [2.2 Consumer Request](https://oembed.com/#section2) for more info.
+
+  ## Examples
+
+      iex> req = Req.new() |> ReqEmbed.attach()
+      iex> Req.get!(req, url: "https://www.youtube.com/watch?v=XfELJU1mRMg").body
+      %ReqEmbed.Video{
+        title: "Rick Astley - Never Gonna Give You Up (Official Music Video)",
+        html: "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com...
+        ...
+      }
 
   """
   @spec attach(Req.Request.t(), keyword()) :: Req.Request.t()
@@ -33,7 +45,7 @@ defmodule ReqEmbed do
           |> Map.put(:format, "json")
           |> URI.encode_query()
 
-        %{request | url: URI.append_query(uri, query)}
+        %{request | url: URI.append_query(uri, query)} |> dbg
 
       _ ->
         # TODO: error

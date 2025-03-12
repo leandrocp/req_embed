@@ -4,5 +4,5 @@ default:
 vendor-providers:
     #!/usr/bin/env bash
     set -euo pipefail
-    mkdir -p priv/vendor
-    curl -sL https://oembed.com/providers.json > priv/vendor/providers.json 
+    mkdir -p priv/
+    curl -sL https://oembed.com/providers.json > priv/providers.json

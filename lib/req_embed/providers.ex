@@ -1,7 +1,7 @@
 defmodule ReqEmbed.Providers do
   @moduledoc false
 
-  @external_resource "priv/vendor/providers.json"
+  @external_resource "priv/providers.json"
 
   @popular_providers [
     "YouTube",
@@ -26,7 +26,7 @@ defmodule ReqEmbed.Providers do
     "Miro"
   ]
 
-  @providers Path.join([Application.app_dir(:req_embed), "priv/vendor/providers.json"])
+  @providers Path.join([Application.app_dir(:req_embed), "priv/providers.json"])
              |> File.read!()
              |> Jason.decode!()
              |> Enum.map(fn provider ->
