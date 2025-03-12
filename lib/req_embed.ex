@@ -29,9 +29,11 @@ defmodule ReqEmbed do
   """
   @spec attach(Req.Request.t(), keyword()) :: Req.Request.t()
   def attach(%Req.Request{} = request, options \\ []) do
+    query = Map.drop(options[:query] || %{}, [:url, :format])
+
     request
     |> Req.Request.register_options([:oembed_query])
-    |> Req.Request.merge_options(oembed_query: options[:query] || %{})
+    |> Req.Request.merge_options(oembed_query: query)
     |> Req.Request.prepend_request_steps(oembed_url: &oembed_url/1)
     |> Req.Request.append_response_steps(oembed_decode: &decode/1)
   end
@@ -40,9 +42,11 @@ defmodule ReqEmbed do
     case find_endpoint(request) do
       %URI{} = uri ->
         query =
-          request
-          |> Req.Request.get_option(:oembed_query)
-          |> Map.put(:format, "json")
+          (uri.query || "")
+          |> URI.decode_query()
+          |> Map.put("format", "json")
+          |> Map.put_new("url", to_string(request.url))
+          |> Map.merge(Req.Request.get_option(request, :oembed_query))
           |> URI.encode_query()
 
         %{request | url: URI.append_query(uri, query)}

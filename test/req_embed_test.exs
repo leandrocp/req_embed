@@ -41,7 +41,7 @@ defmodule ReqEmbedTest do
   end
 
   describe "oembed" do
-    test "discover the embedded type" do
+    test "discover the video type" do
       req = Req.new() |> ReqEmbed.attach()
 
       assert %ReqEmbed.Video{
@@ -53,6 +53,25 @@ defmodule ReqEmbedTest do
              } = Req.get!(req, url: "https://www.youtube.com/watch?v=XfELJU1mRMg").body
 
       assert html =~ "iframe"
+    end
+
+    test "discover the rich type" do
+      req = Req.new() |> ReqEmbed.attach()
+
+      assert %ReqEmbed.Rich{
+               type: "rich",
+               version: "1.0",
+               title: nil,
+               width: 550,
+               author_name: "ThinkingElixir",
+               author_url: "https://twitter.com/ThinkingElixir",
+               provider_name: "Twitter",
+               provider_url: "https://twitter.com",
+               html: html
+             } =
+               Req.get!(req, url: "https://x.com/ThinkingElixir/status/1848702455313318251").body
+
+      assert html =~ "blockquote"
     end
   end
 end
