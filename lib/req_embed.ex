@@ -2,7 +2,7 @@ defmodule ReqEmbed do
   @moduledoc """
   oEmbed for Req
 
-  Supports [discovery](https://oembed.com/#section4) and TODO providers.
+  Supports [discovery](https://oembed.com/#section4) and #{length(ReqEmbed.Providers.all())} providers.
   """
 
   @doc """
@@ -10,8 +10,6 @@ defmodule ReqEmbed do
 
   ## Options
 
-    * `:discover` (t:boolean/0) - Defaults to `true`. Try to discover the oEmbed endpoint from the `<link>` tag first,
-      otherwise try to find the endpoint from the list of providers.
     * `:query` (t:map/0) - Defaults to `%{}`. The query parameters to be sent to the oEmbed endpoint.
       The parameters `:url` and `:format` are managed by the plugin, you can't override them.
       See section [2.2 Consumer Request](https://oembed.com/#section2) for more info.
@@ -20,11 +18,8 @@ defmodule ReqEmbed do
   @spec attach(Req.Request.t(), keyword()) :: Req.Request.t()
   def attach(%Req.Request{} = request, options \\ []) do
     request
-    |> Req.Request.register_options([:oembed_discover, :oembed_query])
-    |> Req.Request.merge_options(
-      oembed_discover: options[:discover] || true,
-      oembed_query: options[:query] || %{}
-    )
+    |> Req.Request.register_options([:oembed_query])
+    |> Req.Request.merge_options(oembed_query: options[:query] || %{})
     |> Req.Request.prepend_request_steps(oembed_url: &oembed_url/1)
     |> Req.Request.append_response_steps(oembed_decode: &decode/1)
   end
@@ -35,6 +30,7 @@ defmodule ReqEmbed do
         query =
           request
           |> Req.Request.get_option(:oembed_query)
+          |> Map.put(:format, "json")
           |> URI.encode_query()
 
         %{request | url: URI.append_query(uri, query)}
@@ -46,16 +42,9 @@ defmodule ReqEmbed do
   end
 
   defp find_endpoint(request) do
-    with true <- Req.Request.get_option(request, :oembed_discover),
-         %URI{} = uri <- discover_link(to_string(request.url)) do
-      uri
-    else
-      _ ->
-        with %URI{} = uri <- discover_provider(to_string(request.url)) do
-          uri
-        else
-          _ -> nil
-        end
+    case discover_link(to_string(request.url)) do
+      %URI{} = uri -> uri
+      _ -> discover_provider(to_string(request.url))
     end
   end
 
@@ -72,8 +61,11 @@ defmodule ReqEmbed do
   end
 
   @doc false
-  def discover_provider(_url) do
-    nil
+  def discover_provider(url) when is_binary(url) do
+    case ReqEmbed.Providers.get_by_url(url) do
+      %{endpoints: [%{url: url} | _]} -> url
+      _ -> nil
+    end
   end
 
   defp decode({request, %{status: 200} = response}) do

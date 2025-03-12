@@ -31,7 +31,8 @@ defmodule ReqEmbedTest do
     end
 
     test "get_by_url returns provider when URL matches scheme" do
-      assert %{name: "YouTube"} = ReqEmbed.Providers.get_by_url("https://www.youtube.com/watch?v=XfELJU1mRMg")
+      assert %{name: "YouTube"} =
+               ReqEmbed.Providers.get_by_url("https://www.youtube.com/watch?v=XfELJU1mRMg")
     end
 
     test "get_by_url returns nil when URL doesn't match any provider" do
@@ -40,7 +41,7 @@ defmodule ReqEmbedTest do
   end
 
   describe "oembed" do
-    test "returns the embedded type" do
+    test "discover the embedded type" do
       req = Req.new() |> ReqEmbed.attach()
 
       assert %ReqEmbed.Video{
@@ -53,19 +54,5 @@ defmodule ReqEmbedTest do
 
       assert html =~ "iframe"
     end
-  end
-
-  describe "discover from link" do
-    test "find the embedded endpoint" do
-      assert %URI{
-               scheme: "https",
-               host: "www.youtube.com",
-               path: "/oembed",
-               query: "format=json&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXfELJU1mRMg"
-             } = ReqEmbed.discover_link("https://www.youtube.com/watch?v=XfELJU1mRMg")
-    end
-  end
-
-  describe "discover from provider" do
   end
 end
