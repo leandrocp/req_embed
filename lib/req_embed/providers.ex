@@ -31,4 +31,14 @@ defmodule ReqEmbed.Providers do
              end)
 
   def all, do: @providers
+
+  def get_by_url(url) when is_binary(url) do
+    Enum.find(@providers, fn provider ->
+      Enum.any?(provider.endpoints, fn endpoint ->
+        Enum.any?(endpoint.schemes, fn pattern ->
+          Regex.match?(pattern, url)
+        end)
+      end)
+    end)
+  end
 end

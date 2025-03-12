@@ -29,6 +29,14 @@ defmodule ReqEmbedTest do
                | _
              ] = ReqEmbed.Providers.all()
     end
+
+    test "get_by_url returns provider when URL matches scheme" do
+      assert %{name: "YouTube"} = ReqEmbed.Providers.get_by_url("https://www.youtube.com/watch?v=XfELJU1mRMg")
+    end
+
+    test "get_by_url returns nil when URL doesn't match any provider" do
+      refute ReqEmbed.Providers.get_by_url("http://unknown-provider.com/photo/1234")
+    end
   end
 
   describe "oembed" do
