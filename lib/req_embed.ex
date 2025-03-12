@@ -16,6 +16,11 @@ defmodule ReqEmbed do
       The parameters `:url` and `:format` are managed by the plugin, you can't override them.
       See section [2.2 Consumer Request](https://oembed.com/#section2) for more info.
 
+    * `:discover` (`t:boolean/0`) - Defaults to `true`. When enabled, it will first attempt to auto-discover
+      the oEmbed endpoint by looking for the link tag in the HTML response. If no link tag is found, it will
+      fallback to searching for a known provider endpoint. When disabled, it will skip the HTML parsing step
+      and only use the known provider endpoints.
+
   ## Examples
 
       iex> req = Req.new() |> ReqEmbed.attach()
@@ -32,8 +37,8 @@ defmodule ReqEmbed do
     query = Map.drop(options[:query] || %{}, [:url, :format])
 
     request
-    |> Req.Request.register_options([:oembed_query])
-    |> Req.Request.merge_options(oembed_query: query)
+    |> Req.Request.register_options([:oembed_query, :oembed_discover])
+    |> Req.Request.merge_options(oembed_query: query, oembed_discover: options[:discover] || true)
     |> Req.Request.prepend_request_steps(oembed_url: &oembed_url/1)
     |> Req.Request.append_response_steps(oembed_decode: &decode/1)
   end
@@ -57,9 +62,11 @@ defmodule ReqEmbed do
   end
 
   defp find_endpoint(request) do
-    case discover_link(to_string(request.url)) do
+    url = to_string(request.url)
+
+    case Req.Request.get_option(request, :oembed_discover) && discover_link(url) do
       %URI{} = uri -> uri
-      _ -> discover_provider(to_string(request.url))
+      _ -> discover_provider(url)
     end
   end
 

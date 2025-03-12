@@ -55,6 +55,20 @@ defmodule ReqEmbedTest do
       assert html =~ "iframe"
     end
 
+    test "works with discover: false using known provider endpoint" do
+      req = Req.new() |> ReqEmbed.attach(discover: false)
+
+      assert %ReqEmbed.Video{
+               type: "video",
+               version: "1.0",
+               title: "Rick Astley - Never Gonna Give You Up (Official Music Video)",
+               provider_name: "YouTube",
+               html: html
+             } = Req.get!(req, url: "https://www.youtube.com/watch?v=XfELJU1mRMg").body
+
+      assert html =~ "iframe"
+    end
+
     test "discover the rich type" do
       req = Req.new() |> ReqEmbed.attach()
 
