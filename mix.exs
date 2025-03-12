@@ -38,7 +38,7 @@ defmodule ReqEmbed.MixProject do
         "lib",
         "priv",
         "README.md",
-        "LICENSE.md",
+        "LICENSE",
         "CHANGELOG.md"
       ]
     ]
