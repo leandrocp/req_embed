@@ -45,10 +45,9 @@ defmodule ReqEmbed do
           |> Map.put(:format, "json")
           |> URI.encode_query()
 
-        %{request | url: URI.append_query(uri, query)} |> dbg
+        %{request | url: URI.append_query(uri, query)}
 
       _ ->
-        # TODO: error
         request
     end
   end
