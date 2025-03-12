@@ -20,7 +20,8 @@ defmodule ReqEmbed.MixProject do
   defp deps do
     [
       {:req, "~> 0.4"},
-      {:floki, "~> 0.35"}
+      {:floki, "~> 0.35"},
+      {:jason, "~> 1.0"}
     ]
   end
 end

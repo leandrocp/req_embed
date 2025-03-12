@@ -1,6 +1,36 @@
 defmodule ReqEmbedTest do
   use ExUnit.Case
 
+  describe "providers" do
+    test "loads all providers" do
+      assert ReqEmbed.Providers.all() |> length() == 331
+    end
+
+    test "format" do
+      assert [
+               %{
+                 name: "23HQ",
+                 url: "http://www.23hq.com",
+                 endpoints: [
+                   %{
+                     url: %URI{
+                       scheme: "http",
+                       userinfo: nil,
+                       host: "www.23hq.com",
+                       port: 80,
+                       path: "/23/oembed",
+                       query: nil,
+                       fragment: nil
+                     },
+                     schemes: [~r/http:\/\/www\.23hq\.com\/.*\/photo\/.*/]
+                   }
+                 ]
+               }
+               | _
+             ] = ReqEmbed.Providers.all()
+    end
+  end
+
   describe "oembed" do
     test "returns the embedded type" do
       req = Req.new() |> ReqEmbed.attach()
