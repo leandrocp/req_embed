@@ -24,12 +24,15 @@ defmodule ReqEmbed do
   ## Examples
 
       iex> req = Req.new() |> ReqEmbed.attach()
-      iex> Req.get!(req, url: "https://www.youtube.com/watch?v=XfELJU1mRMg").body
-      %ReqEmbed.Video{
-        title: "Rick Astley - Never Gonna Give You Up (Official Music Video)",
-        html: "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com...
-        ...
-      }
+      iex> Req.get!(req, url: "https://x.com/ThinkingElixir/status/1848702455313318251").body
+      iex> %ReqEmbed.Rich{
+             type: "rich",
+             version: "1.0",
+             author_name: "ThinkingElixir",
+             author_url: "https://twitter.com/ThinkingElixir",
+             html: "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">News includes upcoming Elixir v1.18 ...
+             ...
+           }
 
   """
   @spec attach(Req.Request.t(), keyword()) :: Req.Request.t()
@@ -159,24 +162,8 @@ defmodule ReqEmbed do
     }
   end
 
-  defp decode_oembed_response(%{"type" => "link"} = body) do
-    %ReqEmbed.Link{
-      type: body["type"],
-      version: body["version"],
-      title: body["title"],
-      author_name: body["author_name"],
-      author_url: body["author_url"],
-      provider_name: body["provider_name"],
-      provider_url: body["provider_url"],
-      cache_age: body["cache_age"],
-      thumbnail_url: body["thumbnail_url"],
-      thumbnail_width: body["thumbnail_width"],
-      thumbnail_height: body["thumbnail_height"]
-    }
-  end
-
   defp decode_oembed_response(body) do
-    %ReqEmbed.Content{
+    %ReqEmbed.Link{
       type: body["type"],
       version: body["version"],
       title: body["title"],

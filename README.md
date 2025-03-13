@@ -35,3 +35,10 @@ Req.get!(req, url: "https://www.youtube.com/watch?v=XfELJU1mRMg").body
 #   height: 113
 # }
 ```
+
+When successful, the response body will contain either one of the following structs representing the oEmbed type:
+
+  - `ReqEmbed.Link`
+  - `ReqEmbed.Photo`
+  - `ReqEmbed.Rich`
+  - `ReqEmbed.Video`

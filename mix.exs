@@ -31,7 +31,8 @@ defmodule ReqEmbed.MixProject do
       licenses: ["MIT"],
       links: %{
         Changelog: "https://hexdocs.pm/req_embed/changelog.html",
-        GitHub: @source_url
+        GitHub: @source_url,
+        DockYard: "https://dockyard.com"
       },
       files: [
         "mix.exs",
