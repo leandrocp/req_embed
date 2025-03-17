@@ -1,5 +1,8 @@
 # ReqEmbed
 
+[![Hex.pm](https://img.shields.io/hexpm/v/req_embed)](https://hex.pm/packages/req_embed)
+[![Hexdocs](https://img.shields.io/badge/hexdocs-latest-blue.svg)](https://hexdocs.pm/req_embed)
+
 <!-- MDOC -->
 
 [oEmbed](https://oembed.com) plugin for [Req](https://hex.pm/packages/req).
