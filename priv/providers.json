@@ -1,17 +1,5 @@
 [
     {
-        "provider_name": "23HQ",
-        "provider_url": "http://www.23hq.com",
-        "endpoints": [
-            {
-                "schemes": [
-                    "http://www.23hq.com/*/photo/*"
-                ],
-                "url": "http://www.23hq.com/23/oembed"
-            }
-        ]
-    },
-    {
         "provider_name": "3Q",
         "provider_url": "https://3q.video/",
         "endpoints": [
