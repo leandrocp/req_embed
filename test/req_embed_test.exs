@@ -107,9 +107,33 @@ defmodule ReqEmbedTest do
           <ReqEmbed.embed url={@url} />
           """,
           """
-          <div>
-            <iframe width="200" height="113" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
-          </div>
+          <iframe width="200" height="113" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+          """
+        )
+      end
+
+      test "add class" do
+        assigns = %{url: "https://www.youtube.com/watch?v=XfELJU1mRMg", class: "aspect-video"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} class={@class} />
+          """,
+          """
+          <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" class="aspect-video" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+          """
+        )
+      end
+
+      test "add rest" do
+        assigns = %{url: "https://www.youtube.com/watch?v=XfELJU1mRMg", id: "video-test"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} id={@id} />
+          """,
+          """
+          <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="113" id="video-test" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" width="200"></iframe>
           """
         )
       end
@@ -142,9 +166,20 @@ defmodule ReqEmbedTest do
           <ReqEmbed.embed url={@url} />
           """,
           """
-          <div>
-            <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
-          </div>
+          <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+          """
+        )
+      end
+
+      test "append class" do
+        assigns = %{url: "https://codepen.io/juliangarnier/pen/krNqZO", class: "aspect-square"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} class={@class} />
+          """,
+          """
+          <iframe allowtransparency="true" class="cp_embed_iframe aspect-square" frameborder="0" id="cp_embed_idhuG" scrolling="no" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" style="width: 100%; overflow: hidden;" title="CSS 3D Solar System"></iframe>
           """
         )
       end

@@ -45,3 +45,19 @@ When successful, the response body will contain either one of the following stru
   - `ReqEmbed.Photo`
   - `ReqEmbed.Rich`
   - `ReqEmbed.Video`
+
+## Component
+
+[ReqEmbed.embed/1](https://hexdocs.pm/req_embed/ReqEmbed.html#req_embed/1) is also available as a Phoenix Component to embed oEmbed content in your Phoenix templates:
+
+```heex
+<ReqEmbed.embed url="https://www.youtube.com/watch?v=XfELJU1mRMg" class="aspect-video" />
+```
+
+Renders:
+
+```html
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" class="aspect-video" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+```
+
+Note that `:phoenix_live_view` is required to use the component, it's not a direct dependency.

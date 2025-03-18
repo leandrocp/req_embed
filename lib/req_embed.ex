@@ -182,6 +182,13 @@ defmodule ReqEmbed do
     use Phoenix.Component
 
     attr(:url, :string, required: true, doc: "URL of the resource to be embedded")
+
+    attr(:class, :string,
+      required: false,
+      doc:
+        "CSS class to be added into the <iframe> tag, if used it removes both width and height attributes"
+    )
+
     attr(:rest, :global)
 
     @doc """
@@ -202,22 +209,39 @@ defmodule ReqEmbed do
       req = Req.new() |> ReqEmbed.attach()
 
       case Req.get(req, url: assigns[:url]) do
-        {:ok, %{body: %ReqEmbed.Video{html: html}}} when is_binary(html) ->
+        {:ok, %{body: %{html: html}}} when is_binary(html) ->
+          html =
+            cond do
+              assigns[:class] == nil and assigns[:rest] == %{} ->
+                html
+
+              {:ok, [{"iframe", attrs, children}]} =
+                  Floki.parse_fragment(html, attributes_as_maps: true) ->
+                rest = Map.new(assigns[:rest] || %{}, fn {k, v} -> {Atom.to_string(k), v} end)
+                attrs = Map.merge(attrs, rest)
+
+                iframe =
+                  if assigns[:class] do
+                    attrs =
+                      attrs
+                      |> Map.drop(["width", "height"])
+                      |> Map.put(
+                        "class",
+                        String.trim("#{attrs["class"]} #{assigns[:class]}")
+                      )
+
+                    [{"iframe", attrs, children}]
+                  else
+                    [{"iframe", attrs, children}]
+                  end
+
+                Floki.raw_html(iframe)
+            end
+
           assigns = assign(assigns, html: html)
 
           ~H"""
-          <div {@rest}>
-            <%= Phoenix.HTML.raw(@html) %>
-          </div>
-          """
-
-        {:ok, %{body: %ReqEmbed.Rich{html: html}}} when is_binary(html) ->
-          assigns = assign(assigns, html: html)
-
-          ~H"""
-          <div {@rest}>
-            <%= Phoenix.HTML.raw(@html) %>
-          </div>
+          <%= Phoenix.HTML.raw(@html) %>
           """
 
         {:ok, %{body: %ReqEmbed.Photo{} = photo}} ->

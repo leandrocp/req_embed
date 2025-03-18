@@ -15,13 +15,22 @@ defmodule ReqEmbed.MixProject do
       deps: deps(),
       name: "ReqEmbed",
       source_url: @source_url,
-      description: "oEmbed plugin for Req and Phoenix Component to embed rich content",
+      description: "oEmbed plugin for Req and Phoenix Component to embed rich content"
     ]
   end
 
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
+        docs: :docs,
+        "hex.publish": :docs
+      ]
     ]
   end
 
@@ -61,7 +70,10 @@ defmodule ReqEmbed.MixProject do
       {:floki, "~> 0.35"},
       {:jason, "~> 1.0"},
       {:phoenix_live_view, "~> 0.20 or ~> 1.0", optional: true},
-      {:ex_doc, ">= 0.0.0", only: :docs, warn_if_outdated: true}
+      {:ex_doc, ">= 0.0.0", only: :docs, warn_if_outdated: true},
+      {:makeup_elixir, "~> 1.0", only: :docs},
+      {:makeup_eex, "~> 2.0", only: :docs},
+      {:makeup_syntect, "~> 0.1", only: :docs}
     ]
   end
 end
