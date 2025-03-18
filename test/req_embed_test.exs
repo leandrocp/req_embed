@@ -88,4 +88,66 @@ defmodule ReqEmbedTest do
       assert html =~ "blockquote"
     end
   end
+
+  if Code.ensure_loaded(Phoenix.Component) do
+    import Phoenix.Component
+
+    defp assert_rendered(template, expected) do
+      rendered = Phoenix.LiveViewTest.rendered_to_string(template)
+      # IO.puts(rendered)
+      assert String.trim(rendered) == String.trim(expected)
+    end
+
+    describe "component: video" do
+      test "render" do
+        assigns = %{url: "https://www.youtube.com/watch?v=XfELJU1mRMg"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} />
+          """,
+          """
+          <div>
+            <iframe width="200" height="113" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+          </div>
+          """
+        )
+      end
+    end
+
+    describe "component: image" do
+      test "render" do
+        assigns = %{url: "https://giphy.com/gifs/need-pR8zHItvQDvBC"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} />
+          """,
+          """
+          <figure>
+            <img src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" width="500" height="281" loading="lazy">
+            <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
+          </figure>
+          """
+        )
+      end
+    end
+
+    describe "component: rich" do
+      test "render" do
+        assigns = %{url: "https://codepen.io/juliangarnier/pen/krNqZO"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} />
+          """,
+          """
+          <div>
+            <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+          </div>
+          """
+        )
+      end
+    end
+  end
 end

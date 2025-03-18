@@ -177,4 +177,76 @@ defmodule ReqEmbed do
       thumbnail_height: body["thumbnail_height"]
     }
   end
+
+  if Code.ensure_loaded?(Phoenix.Component) do
+    use Phoenix.Component
+
+    attr(:url, :string, required: true, doc: "URL of the resource to be embedded")
+    attr(:rest, :global)
+
+    @doc """
+    Phoenix Component to render oEmbed content.
+
+    Requires [phoenix_live_view](https://hex.pm/packages/phoenix_live_view) to be installed.
+
+    ## Example
+
+        def render(assigns) do
+          ~H\"\"\"
+          <%= ReqEmbed.embed(url: "https://www.youtube.com/watch?v=XfELJU1mRMg") %>
+          \"\"\"
+        end
+
+    """
+    def embed(assigns) do
+      req = Req.new() |> ReqEmbed.attach()
+
+      case Req.get(req, url: assigns[:url]) do
+        {:ok, %{body: %ReqEmbed.Video{html: html}}} when is_binary(html) ->
+          assigns = assign(assigns, html: html)
+
+          ~H"""
+          <div {@rest}>
+            <%= Phoenix.HTML.raw(@html) %>
+          </div>
+          """
+
+        {:ok, %{body: %ReqEmbed.Rich{html: html}}} when is_binary(html) ->
+          assigns = assign(assigns, html: html)
+
+          ~H"""
+          <div {@rest}>
+            <%= Phoenix.HTML.raw(@html) %>
+          </div>
+          """
+
+        {:ok, %{body: %ReqEmbed.Photo{} = photo}} ->
+          assigns = assign(assigns, photo: photo)
+
+          ~H"""
+          <figure {@rest}>
+            <img
+              src={@photo.url}
+              alt={@photo.title}
+              width={@photo.width || nil}
+              height={@photo.height || nil}
+              loading="lazy"
+            />
+            <figcaption>{@photo.title}</figcaption>
+          </figure>
+          """
+
+        _ ->
+          ~H"""
+          <span>Unsupported embed type</span>
+          """
+      end
+    end
+  else
+    def embed(_assigns) do
+      raise """
+      :phoenix_live_view is required to use ReqEmbed.embed/1
+      """
+    end
+  end
 end
