@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1 (2025-03-19)
+
+### Changed
+  * Repo link
+
 ## 0.2.0 (2025-03-19)
 
 ### Changed
