@@ -1,10 +1,10 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 (2025-03-19)
 
 ### Changed
-  * Added `html/2` to display oEmbed content as html
-  * Added `embed/1` Phoenix component
+  * Added `html/2` to display oEmbed content as raw html
+  * Added `embed/1` Phoenix component to display oEmbed content in HEEx templates
 
 ## 0.1.2 (2025-03-13)
 

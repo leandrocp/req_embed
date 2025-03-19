@@ -2,7 +2,7 @@ defmodule ReqEmbed.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/BeaconCMS/req_embed"
-  @version "0.2.0-dev"
+  @version "0.2.0"
 
   def project do
     [
