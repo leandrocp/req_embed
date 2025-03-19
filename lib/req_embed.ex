@@ -178,6 +178,106 @@ defmodule ReqEmbed do
     }
   end
 
+  @doc """
+  Render the oEmbed content as HTML.
+
+  ## Options
+
+    * `:class` (`t:String.t/0`) - Defaults to `nil`. CSS class to be added into the <iframe> tag, if used it removes both `width` and `height` attributes.
+    * `:include_caption` (`t:boolean/0`) - Defaults to `true`. When enabled, it will include the photo title in `<figcaption>`.
+
+  ## Examples
+
+      iex> ReqEmbed.html("https://www.youtube.com/watch?v=XfELJU1mRMg")
+      <iframe width="200" height="113" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+
+  Replace the `width` and `height` attributes with a CSS class:
+
+      iex> ReqEmbed.html("https://www.youtube.com/watch?v=XfELJU1mRMg", class: "aspect-video")
+      <iframe class="aspect-video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+
+  Wrap it in a `{:safe, content}` tuple or call `Phoenix.HTML.safe/1` to render it in Phoenix templates.
+
+  """
+  def html(url, opts \\ []) when is_binary(url) and is_list(opts) do
+    class = opts[:class]
+    include_caption = Keyword.get(opts, :include_caption, true)
+
+    req = Req.new() |> ReqEmbed.attach()
+
+    case Req.get(req, url: url) do
+      {:ok, %{body: %{html: html}}} when is_binary(html) ->
+        cond do
+          !class ->
+            html
+
+          {:ok, [{tag, attrs, children}]} = Floki.parse_fragment(html, attributes_as_maps: true) ->
+            attrs =
+              attrs
+              |> Map.drop(["width", "height"])
+              |> append_class(class)
+
+            Floki.raw_html([{tag, attrs, children}])
+        end
+
+      {:ok, %{body: %ReqEmbed.Photo{} = photo}} ->
+        caption =
+          if include_caption do
+            {:safe, title} = Phoenix.HTML.html_escape(photo.title || "")
+            ["  ", "<figcaption>", title, "</figcaption>", "\n"]
+          else
+            []
+          end
+
+        [
+          "<figure>",
+          "\n",
+          "  <img ",
+          html_attr("src", photo.url),
+          " ",
+          html_attr("alt", photo.title),
+          " ",
+          html_attr("width", photo.width),
+          " ",
+          html_attr("height", photo.height),
+          " ",
+          html_attr("loading", "lazy"),
+          " />",
+          "\n",
+          caption,
+          "</figure>"
+        ]
+        |> IO.iodata_to_binary()
+
+      _ ->
+        "<span>Unsupported embed type</span>"
+    end
+  end
+
+  @doc false
+  def append_class(%{"class" => class} = attrs, new_class) when is_binary(new_class) do
+    class = String.split(class, " ")
+
+    class =
+      [new_class | class]
+      |> Enum.reverse()
+      |> Enum.join(" ")
+
+    Map.put(attrs, "class", class)
+  end
+
+  def append_class(attrs, new_class) when is_binary(new_class),
+    do: Map.put(attrs, "class", new_class)
+
+  def append_class(attrs, _), do: attrs
+
+  defp html_attr(_attr, nil = _value), do: []
+
+  defp html_attr(attr, value) do
+    {:safe, value} = Phoenix.HTML.html_escape(value)
+    [attr, "=", ?", value, ?"]
+  end
+
   if Code.ensure_loaded?(Phoenix.Component) do
     use Phoenix.Component
 
@@ -189,12 +289,19 @@ defmodule ReqEmbed do
         "CSS class to be added into the <iframe> tag, if used it removes both width and height attributes"
     )
 
-    attr(:rest, :global)
+    attr(:include_caption, :boolean,
+      required: false,
+      default: true,
+      doc: "When enabled, it will include the photo title in <figcaption>"
+    )
 
     @doc """
     Phoenix Component to render oEmbed content.
 
-    Requires [phoenix_live_view](https://hex.pm/packages/phoenix_live_view) to be installed.
+    Requires [phoenix_live_view](https://hex.pm/packages/phoenix_live_view) to be installed,
+    otherwise you can use `html/2` directly.
+
+    This component is essentially a wrapper for `html/2`.
 
     ## Example
 
@@ -206,65 +313,18 @@ defmodule ReqEmbed do
 
     """
     def embed(assigns) do
-      req = Req.new() |> ReqEmbed.attach()
+      assigns =
+        assign(assigns,
+          html:
+            html(assigns[:url],
+              class: assigns[:class],
+              include_caption: assigns[:include_caption]
+            )
+        )
 
-      case Req.get(req, url: assigns[:url]) do
-        {:ok, %{body: %{html: html}}} when is_binary(html) ->
-          html =
-            cond do
-              assigns[:class] == nil and assigns[:rest] == %{} ->
-                html
-
-              {:ok, [{"iframe", attrs, children}]} =
-                  Floki.parse_fragment(html, attributes_as_maps: true) ->
-                rest = Map.new(assigns[:rest] || %{}, fn {k, v} -> {Atom.to_string(k), v} end)
-                attrs = Map.merge(attrs, rest)
-
-                iframe =
-                  if assigns[:class] do
-                    attrs =
-                      attrs
-                      |> Map.drop(["width", "height"])
-                      |> Map.put(
-                        "class",
-                        String.trim("#{attrs["class"]} #{assigns[:class]}")
-                      )
-
-                    [{"iframe", attrs, children}]
-                  else
-                    [{"iframe", attrs, children}]
-                  end
-
-                Floki.raw_html(iframe)
-            end
-
-          assigns = assign(assigns, html: html)
-
-          ~H"""
-          <%= Phoenix.HTML.raw(@html) %>
-          """
-
-        {:ok, %{body: %ReqEmbed.Photo{} = photo}} ->
-          assigns = assign(assigns, photo: photo)
-
-          ~H"""
-          <figure {@rest}>
-            <img
-              src={@photo.url}
-              alt={@photo.title}
-              width={@photo.width || nil}
-              height={@photo.height || nil}
-              loading="lazy"
-            />
-            <figcaption>{@photo.title}</figcaption>
-          </figure>
-          """
-
-        _ ->
-          ~H"""
-          <span>Unsupported embed type</span>
-          """
-      end
+      ~H"""
+      <%= Phoenix.HTML.raw(@html) %>
+      """
     end
   else
     def embed(_assigns) do

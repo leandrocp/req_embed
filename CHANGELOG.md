@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+  * Added `html/2` to display oEmbed content as html
+  * Added `embed/1` Phoenix component
+
 ## 0.1.2 (2025-03-13)
 
 ### Changed
