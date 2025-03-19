@@ -69,6 +69,7 @@ defmodule ReqEmbed.MixProject do
       {:req, "~> 0.4"},
       {:floki, "~> 0.35"},
       {:jason, "~> 1.0"},
+      {:phoenix_html, "~> 3.0 or ~> 4.0"},
       {:phoenix_live_view, "~> 0.20 or ~> 1.0", optional: true},
       {:ex_doc, ">= 0.0.0", only: :docs, warn_if_outdated: true},
       {:makeup_elixir, "~> 1.0", only: :docs},

@@ -9,7 +9,27 @@
 
 Supports [discovery](https://oembed.com/#section4) and 300+ [providers](https://github.com/BeaconCMS/req_embed/blob/main/priv/providers.json).
 
+## Installation
+
+Add `:req_embed` dependency:
+
+```elixir
+def deps do
+  [
+    {:req_embed, "~> 0.2"}
+  ]
+end
+```
+
+Or use [Igniter](https://hexdocs.pm/igniter):
+
+```sh
+mix igniter.install req_embed
+```
+
 ## Usage
+
+### Req plugin
 
 ```elixir
 Mix.install([
@@ -46,9 +66,9 @@ When successful, the response body will contain either one of the following stru
   - `ReqEmbed.Rich`
   - `ReqEmbed.Video`
 
-## Component
+### Phoenix Component
 
-[ReqEmbed.embed/1](https://hexdocs.pm/req_embed/ReqEmbed.html#req_embed/1) is also available as a Phoenix Component to embed oEmbed content in your Phoenix templates:
+Use [ReqEmbed.embed/1](https://hexdocs.pm/req_embed/ReqEmbed.html#req_embed/1) to display oEmbed content in HEEx templates:
 
 ```heex
 <ReqEmbed.embed url="https://www.youtube.com/watch?v=XfELJU1mRMg" class="aspect-video" />
@@ -61,3 +81,14 @@ Renders:
 ```
 
 Note that `:phoenix_live_view` is required to use the component, it's not a direct dependency.
+
+### Raw HTML
+
+Or alternatively use [ReqEmbed.html/2](https://hexdocs.pm/req_embed/ReqEmbed.html#html/2) to get the oEmbed content as HTML:
+
+```elixir
+ReqEmbed.html("https://www.youtube.com/watch?v=XfELJU1mRMg")
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+```
+
+Wrap it in a `{:safe, content}` tuple or call `Phoenix.HTML.safe/1` to render it in Phoenix templates.
