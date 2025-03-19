@@ -128,7 +128,7 @@ defmodule ReqEmbedTest do
         "https://giphy.com/gifs/need-pR8zHItvQDvBC",
         """
         <figure>
-          <img src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" width="500" height="281" loading="lazy" />
+          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
           <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
         </figure>
         """
@@ -140,7 +140,7 @@ defmodule ReqEmbedTest do
         "https://giphy.com/gifs/need-pR8zHItvQDvBC",
         """
         <figure>
-          <img src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" width="500" height="281" loading="lazy" />
+          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
         </figure>
         """,
         include_caption: false
@@ -203,7 +203,7 @@ defmodule ReqEmbedTest do
           """,
           """
           <figure>
-            <img src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" width="500" height="281" loading="lazy" />
+            <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
             <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
           </figure>
           """

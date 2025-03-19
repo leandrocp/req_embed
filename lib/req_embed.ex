@@ -196,7 +196,7 @@ defmodule ReqEmbed do
       iex> ReqEmbed.html("https://www.youtube.com/watch?v=XfELJU1mRMg", class: "aspect-video")
       <iframe class="aspect-video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
 
-  Wrap it in a `{:safe, content}` tuple or call `Phoenix.HTML.safe/1` to render it in Phoenix templates.
+  Wrap it in a `{:safe, html}` tuple or call `Phoenix.HTML.raw/1` to render it in Phoenix templates.
 
   """
   def html(url, opts \\ []) when is_binary(url) and is_list(opts) do
@@ -229,25 +229,25 @@ defmodule ReqEmbed do
             []
           end
 
-        [
+        {:safe, attrs} =
+          Phoenix.HTML.attributes_escape(%{
+            "src" => photo.url,
+            "alt" => photo.title,
+            "width" => photo.width,
+            "height" => photo.height,
+            "loading" => "lazy"
+          })
+
+        IO.iodata_to_binary([
           "<figure>",
           "\n",
-          "  <img ",
-          html_attr("src", photo.url),
-          " ",
-          html_attr("alt", photo.title),
-          " ",
-          html_attr("width", photo.width),
-          " ",
-          html_attr("height", photo.height),
-          " ",
-          html_attr("loading", "lazy"),
+          "  <img",
+          [attrs],
           " />",
           "\n",
           caption,
           "</figure>"
-        ]
-        |> IO.iodata_to_binary()
+        ])
 
       _ ->
         "<span>Unsupported embed type</span>"
@@ -270,13 +270,6 @@ defmodule ReqEmbed do
     do: Map.put(attrs, "class", new_class)
 
   def append_class(attrs, _), do: attrs
-
-  defp html_attr(_attr, nil = _value), do: []
-
-  defp html_attr(attr, value) do
-    {:safe, value} = Phoenix.HTML.html_escape(value)
-    [attr, "=", ?", value, ?"]
-  end
 
   if Code.ensure_loaded?(Phoenix.Component) do
     use Phoenix.Component

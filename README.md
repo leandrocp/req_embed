@@ -91,4 +91,4 @@ ReqEmbed.html("https://www.youtube.com/watch?v=XfELJU1mRMg")
 # <iframe width="200" height="113" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
 ```
 
-Wrap it in a `{:safe, content}` tuple or call `Phoenix.HTML.safe/1` to render it in Phoenix templates.
+Wrap it in a `{:safe, html}` tuple or call `Phoenix.HTML.raw/1` to render it in Phoenix templates.
