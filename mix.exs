@@ -13,6 +13,7 @@ defmodule ReqEmbed.MixProject do
       package: package(),
       docs: docs(),
       deps: deps(),
+      aliases: aliases(),
       name: "ReqEmbed",
       source_url: @source_url,
       description: "oEmbed plugin for Req and Phoenix Component to embed rich content"
@@ -75,6 +76,13 @@ defmodule ReqEmbed.MixProject do
       {:makeup_elixir, "~> 1.0", only: :docs},
       {:makeup_eex, "~> 2.0", only: :docs},
       {:makeup_syntect, "~> 0.1", only: :docs}
+    ]
+  end
+
+  defp aliases do
+    [
+      setup: ["deps.get", "compile"],
+      dev: ["cmd iex demo.exs"]
     ]
   end
 end
