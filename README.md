@@ -7,12 +7,10 @@
 
 [oEmbed](https://oembed.com) plugin for [Req](https://hex.pm/packages/req).
 
-Supports [discovery](https://oembed.com/#section4) and 300+ [providers](https://github.com/BeaconCMS/req_embed/blob/main/priv/providers.json).
-
 ## Features
 
 * **Auto-Discovery**: Finds oEmbed endpoints via HTML link tags ([oEmbed discovery](https://oembed.com/#section4))
-* **300+ Providers**: YouTube, Twitter, Instagram, and [more](https://github.com/BeaconCMS/req_embed/blob/main/priv/providers.json)
+* **300+ Providers**: YouTube, Twitter, Instagram, and [more](https://github.com/leandrocp/req_embed/blob/main/priv/providers.json)
 * **Content Types**: Video, Photo, Rich media, and Link embeds
 * **Phoenix Ready**: HEEx component and HTML helpers
 * **Customizable**: CSS classes, responsive design, and embed options
