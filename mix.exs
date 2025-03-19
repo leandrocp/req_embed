@@ -2,7 +2,7 @@ defmodule ReqEmbed.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/BeaconCMS/req_embed"
-  @version "0.1.2"
+  @version "0.2.0-dev"
 
   def project do
     [
@@ -13,15 +13,25 @@ defmodule ReqEmbed.MixProject do
       package: package(),
       docs: docs(),
       deps: deps(),
+      aliases: aliases(),
       name: "ReqEmbed",
       source_url: @source_url,
-      description: "oEmbed plugin for Req"
+      description: "oEmbed plugin for Req and Phoenix Component to embed rich content"
     ]
   end
 
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
+        docs: :docs,
+        "hex.publish": :docs
+      ]
     ]
   end
 
@@ -60,7 +70,19 @@ defmodule ReqEmbed.MixProject do
       {:req, "~> 0.4"},
       {:floki, "~> 0.35"},
       {:jason, "~> 1.0"},
-      {:ex_doc, "~> 0.31", only: :dev, runtime: false}
+      {:phoenix_html, "~> 3.0 or ~> 4.0"},
+      {:phoenix_live_view, "~> 0.20 or ~> 1.0", optional: true},
+      {:ex_doc, ">= 0.0.0", only: :docs, warn_if_outdated: true},
+      {:makeup_elixir, "~> 1.0", only: :docs},
+      {:makeup_eex, "~> 2.0", only: :docs},
+      {:makeup_syntect, "~> 0.1", only: :docs}
+    ]
+  end
+
+  defp aliases do
+    [
+      setup: ["deps.get", "compile"],
+      dev: ["cmd iex demo.exs"]
     ]
   end
 end

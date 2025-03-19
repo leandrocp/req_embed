@@ -88,4 +88,142 @@ defmodule ReqEmbedTest do
       assert html =~ "blockquote"
     end
   end
+
+  defp assert_html(url, expected, opts \\ []) do
+    html = ReqEmbed.html(url, opts)
+    # IO.puts(html)
+    assert String.trim(html) == String.trim(expected)
+  end
+
+  test "append_class" do
+    assert ReqEmbed.append_class(%{}, "foo") == %{"class" => "foo"}
+    assert ReqEmbed.append_class(%{"class" => "foo"}, "foo") == %{"class" => "foo foo"}
+    assert ReqEmbed.append_class(%{"class" => "foo"}, "bar") == %{"class" => "foo bar"}
+  end
+
+  describe "html: video" do
+    test "render" do
+      assert_html(
+        "https://www.youtube.com/watch?v=XfELJU1mRMg",
+        """
+        <iframe width="200" height="113" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+        """
+      )
+    end
+
+    test "add class" do
+      assert_html(
+        "https://www.youtube.com/watch?v=XfELJU1mRMg",
+        """
+        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" class="aspect-video" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+        """,
+        class: "aspect-video"
+      )
+    end
+  end
+
+  describe "html: image" do
+    test "render" do
+      assert_html(
+        "https://giphy.com/gifs/need-pR8zHItvQDvBC",
+        """
+        <figure>
+          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
+          <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
+        </figure>
+        """
+      )
+    end
+
+    test "do not include caption" do
+      assert_html(
+        "https://giphy.com/gifs/need-pR8zHItvQDvBC",
+        """
+        <figure>
+          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
+        </figure>
+        """,
+        include_caption: false
+      )
+    end
+  end
+
+  describe "html: rich" do
+    test "render" do
+      assert_html(
+        "https://codepen.io/juliangarnier/pen/krNqZO",
+        """
+        <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+        """
+      )
+    end
+
+    test "append class" do
+      assert_html(
+        "https://codepen.io/juliangarnier/pen/krNqZO",
+        """
+        <iframe allowtransparency="true" class="cp_embed_iframe aspect-square" frameborder="0" id="cp_embed_idhuG" scrolling="no" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" style="width: 100%; overflow: hidden;" title="CSS 3D Solar System"></iframe>
+        """,
+        class: "aspect-square"
+      )
+    end
+  end
+
+  if Code.ensure_loaded(Phoenix.Component) do
+    import Phoenix.Component
+
+    defp assert_rendered(template, expected) do
+      rendered = Phoenix.LiveViewTest.rendered_to_string(template)
+      # IO.puts(rendered)
+      assert String.trim(rendered) == String.trim(expected)
+    end
+
+    describe "component: video" do
+      test "render" do
+        assigns = %{url: "https://www.youtube.com/watch?v=XfELJU1mRMg"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} />
+          """,
+          """
+          <iframe width="200" height="113" src="https://www.youtube.com/embed/XfELJU1mRMg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rick Astley - Never Gonna Give You Up (Official Music Video)"></iframe>
+          """
+        )
+      end
+    end
+
+    describe "component: image" do
+      test "render" do
+        assigns = %{url: "https://giphy.com/gifs/need-pR8zHItvQDvBC"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} />
+          """,
+          """
+          <figure>
+            <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
+            <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
+          </figure>
+          """
+        )
+      end
+    end
+
+    describe "component: rich" do
+      test "render" do
+        assigns = %{url: "https://codepen.io/juliangarnier/pen/krNqZO"}
+
+        assert_rendered(
+          ~H"""
+          <ReqEmbed.embed url={@url} />
+          """,
+          """
+          <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+          """
+        )
+      end
+    end
+  end
 end
