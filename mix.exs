@@ -82,7 +82,7 @@ defmodule ReqEmbed.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "compile"],
-      dev: ["cmd iex demo.exs"]
+      dev: ["cmd iex dev.exs"]
     ]
   end
 end
