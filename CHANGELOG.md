@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.2 (2025-04-24)
 
 ### Fixes
   * Install without `:phoenix_live_view` dependency
