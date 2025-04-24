@@ -16,7 +16,7 @@ defmodule ReqEmbed.MixProject do
       aliases: aliases(),
       name: "ReqEmbed",
       source_url: @source_url,
-      description: "oEmbed plugin for Req and Phoenix Component to embed rich content"
+      description: "Req plugin to fetch oEmbed resources and a Phoenix Component to embed rich content."
     ]
   end
 
