@@ -5,7 +5,7 @@
 
 <!-- MDOC -->
 
-[oEmbed](https://oembed.com) plugin for [Req](https://hex.pm/packages/req).
+[Req](https://hex.pm/packages/req) plugin for [oEmbed](https://oembed.com).
 
 ## Features
 
