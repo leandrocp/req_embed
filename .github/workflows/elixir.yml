@@ -99,3 +99,10 @@ jobs:
       - run: mix format --check-formatted
 
       - run: mix deps.unlock --check-unused
+
+  report_mix_deps:
+    name: "Report Mix Dependencies"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: erlef/mix-dependency-submission@v1
