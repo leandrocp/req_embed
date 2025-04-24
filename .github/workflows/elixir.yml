@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -89,6 +89,12 @@ jobs:
         if: steps.cache-deps.outputs.cache-hit != 'true'
 
       - run: mix compile --warnings-as-errors
+
+      - run: mix format
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: auto commit
 
       - run: mix format --check-formatted
 
