@@ -3,7 +3,7 @@ defmodule ReqEmbedTest do
 
   describe "providers" do
     test "loads all providers" do
-      assert ReqEmbed.Providers.all() |> length() == 331
+      assert ReqEmbed.Providers.all() |> length() == 344
     end
 
     test "format" do
@@ -128,7 +128,7 @@ defmodule ReqEmbedTest do
         "https://giphy.com/gifs/need-pR8zHItvQDvBC",
         """
         <figure>
-          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
+          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media3.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
           <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
         </figure>
         """
@@ -140,7 +140,7 @@ defmodule ReqEmbedTest do
         "https://giphy.com/gifs/need-pR8zHItvQDvBC",
         """
         <figure>
-          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
+          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media3.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
         </figure>
         """,
         include_caption: false
@@ -203,7 +203,7 @@ defmodule ReqEmbedTest do
           """,
           """
           <figure>
-            <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media2.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
+            <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media3.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
             <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
           </figure>
           """

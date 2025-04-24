@@ -72,7 +72,7 @@ defmodule ReqEmbed.MixProject do
       {:jason, "~> 1.0"},
       {:phoenix_html, "~> 3.0 or ~> 4.0"},
       {:phoenix_live_view, "~> 0.20 or ~> 1.0", optional: true},
-      {:ex_doc, ">= 0.0.0", only: :docs, warn_if_outdated: true},
+      {:ex_doc, ">= 0.0.0", only: :docs},
       {:makeup_elixir, "~> 1.0", only: :docs},
       {:makeup_eex, "~> 2.0", only: :docs},
       {:makeup_syntect, "~> 0.1", only: :docs}

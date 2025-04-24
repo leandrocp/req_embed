@@ -271,59 +271,24 @@ defmodule ReqEmbed do
 
   def append_class(attrs, _), do: attrs
 
-  if Code.ensure_loaded?(Phoenix.Component) do
-    use Phoenix.Component
+  @doc """
+  Phoenix Component to render oEmbed content.
 
-    attr(:url, :string, required: true, doc: "URL of the resource to be embedded")
+  Requires [phoenix_live_view](https://hex.pm/packages/phoenix_live_view) to be installed,
+  otherwise you can use `html/2` directly.
 
-    attr(:class, :string,
-      required: false,
-      doc:
-        "CSS class to be added into the <iframe> tag, if used it removes both width and height attributes"
-    )
+  This component is essentially a wrapper for `html/2`.
 
-    attr(:include_caption, :boolean,
-      required: false,
-      default: true,
-      doc: "When enabled, it will include the photo title in <figcaption>"
-    )
+  See `ReqEmbed.Component.embed/1` for attributes doc.
 
-    @doc """
-    Phoenix Component to render oEmbed content.
+  ## Example
 
-    Requires [phoenix_live_view](https://hex.pm/packages/phoenix_live_view) to be installed,
-    otherwise you can use `html/2` directly.
+      def render(assigns) do
+        ~H\"\"\"
+        <%= ReqEmbed.embed(url: "https://www.youtube.com/watch?v=XfELJU1mRMg") %>
+        \"\"\"
+      end
 
-    This component is essentially a wrapper for `html/2`.
-
-    ## Example
-
-        def render(assigns) do
-          ~H\"\"\"
-          <%= ReqEmbed.embed(url: "https://www.youtube.com/watch?v=XfELJU1mRMg") %>
-          \"\"\"
-        end
-
-    """
-    def embed(assigns) do
-      assigns =
-        assign(assigns,
-          html:
-            html(assigns[:url],
-              class: assigns[:class],
-              include_caption: assigns[:include_caption]
-            )
-        )
-
-      ~H"""
-      <%= Phoenix.HTML.raw(@html) %>
-      """
-    end
-  else
-    def embed(_assigns) do
-      raise """
-      :phoenix_live_view is required to use ReqEmbed.embed/1
-      """
-    end
-  end
+  """
+  def embed(assigns), do: ReqEmbed.Component.embed(assigns)
 end
