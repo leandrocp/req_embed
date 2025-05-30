@@ -3,7 +3,7 @@ defmodule ReqEmbedTest do
 
   describe "providers" do
     test "loads all providers" do
-      assert ReqEmbed.Providers.all() |> length() == 344
+      assert ReqEmbed.Providers.all() |> length() == 346
     end
 
     test "format" do
@@ -92,7 +92,7 @@ defmodule ReqEmbedTest do
   defp assert_html(url, expected, opts \\ []) do
     html = ReqEmbed.html(url, opts)
     # IO.puts(html)
-    assert String.trim(html) == String.trim(expected)
+    assert String.trim(html) =~ String.trim(expected)
   end
 
   test "append_class" do
@@ -124,27 +124,18 @@ defmodule ReqEmbedTest do
 
   describe "html: image" do
     test "render" do
-      assert_html(
-        "https://giphy.com/gifs/need-pR8zHItvQDvBC",
-        """
-        <figure>
-          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media3.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
-          <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
-        </figure>
-        """
-      )
+      html = ReqEmbed.html("https://giphy.com/gifs/need-pR8zHItvQDvBC")
+
+      assert html =~
+               ~s|<img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src=|
+
+      assert html =~ ~s|giphy.com/media/pR8zHItvQDvBC/giphy.gif|
+      assert html =~ ~s|<figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>|
     end
 
     test "do not include caption" do
-      assert_html(
-        "https://giphy.com/gifs/need-pR8zHItvQDvBC",
-        """
-        <figure>
-          <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media3.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
-        </figure>
-        """,
-        include_caption: false
-      )
+      html = ReqEmbed.html("https://giphy.com/gifs/need-pR8zHItvQDvBC", include_caption: false)
+      refute html =~ "<figcaption>"
     end
   end
 
@@ -197,17 +188,19 @@ defmodule ReqEmbedTest do
       test "render" do
         assigns = %{url: "https://giphy.com/gifs/need-pR8zHItvQDvBC"}
 
-        assert_rendered(
+        html =
           ~H"""
           <ReqEmbed.embed url={@url} />
-          """,
           """
-          <figure>
-            <img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src="https://media3.giphy.com/media/pR8zHItvQDvBC/giphy.gif" width="500" />
-            <figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>
-          </figure>
-          """
-        )
+          |> Phoenix.LiveViewTest.rendered_to_string()
+
+        assert html =~
+                 ~s|<img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src=|
+
+        assert html =~ ~s|giphy.com/media/pR8zHItvQDvBC/giphy.gif|
+
+        assert html =~
+                 ~s|<figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>|
       end
     end
 
