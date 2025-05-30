@@ -23,9 +23,9 @@ jobs:
             otp: "24.3"
 
           - elixir: "1.18"
-            otp: "27"
+            otp: "28"
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -65,7 +65,7 @@ jobs:
           - elixir: "1.18"
             otp: "27"
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
