@@ -2,7 +2,7 @@ defmodule ReqEmbed.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/leandrocp/req_embed"
-  @version "0.2.2"
+  @version "0.2.3"
 
   def project do
     [
@@ -42,8 +42,7 @@ defmodule ReqEmbed.MixProject do
       licenses: ["MIT"],
       links: %{
         Changelog: "https://hexdocs.pm/req_embed/changelog.html",
-        GitHub: @source_url,
-        DockYard: "https://dockyard.com"
+        GitHub: @source_url
       },
       files: [
         "mix.exs",

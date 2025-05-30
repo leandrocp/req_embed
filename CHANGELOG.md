@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.3 (2025-05-30)
+
+### Enhancements
+  * Added providers: Ignite, marimo
+
+### Fixes
+  * Compilation error on Elixir 1.18.14 and OTP 28
+
 ## 0.2.2 (2025-04-24)
 
 ### Fixes
