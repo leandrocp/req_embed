@@ -2,13 +2,13 @@ defmodule ReqEmbed.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/leandrocp/req_embed"
-  @version "0.2.3"
+  @version "0.2.4-dev"
 
   def project do
     [
       app: :req_embed,
       version: @version,
-      elixir: "~> 1.14",
+      elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       package: package(),
       docs: docs(),

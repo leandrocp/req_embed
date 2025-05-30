@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Breaking Changes
+  * Require minimum Elixir 1.15
+
 ## 0.2.3 (2025-05-30)
 
 ### Enhancements
