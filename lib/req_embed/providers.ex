@@ -36,12 +36,9 @@ defmodule ReqEmbed.Providers do
                      url: String.replace(endpoint["url"], "{format}", "json") |> URI.new!(),
                      schemes:
                        Enum.map(endpoint["schemes"] || [], fn pattern ->
-                         pattern =
-                           pattern
-                           |> String.replace(".", "\\.")
-                           |> String.replace("*", ".*")
-
-                         Regex.compile!(pattern)
+                         pattern
+                         |> String.replace(".", "\\.")
+                         |> String.replace("*", ".*")
                        end)
                    }
                  end)
@@ -69,7 +66,7 @@ defmodule ReqEmbed.Providers do
     Enum.find(providers, fn provider ->
       Enum.any?(provider.endpoints, fn endpoint ->
         Enum.any?(endpoint.schemes, fn pattern ->
-          Regex.match?(pattern, url)
+          Regex.match?(~r/#{pattern}/, url)
         end)
       end)
     end)
