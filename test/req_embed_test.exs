@@ -22,7 +22,7 @@ defmodule ReqEmbedTest do
                        query: nil,
                        fragment: nil
                      },
-                     schemes: [~r/http:\/\/www\.23hq\.com\/.*\/photo\/.*/]
+                     schemes: ["http://www\\.23hq\\.com/.*/photo/.*"]
                    }
                  ]
                }
