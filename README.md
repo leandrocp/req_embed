@@ -35,9 +35,13 @@ mix igniter.install req_embed
 
 ## Usage
 
+req_embed can be used directly as a Req plugin, or as a Phoenix component to render oEmbed content in HEEx templates.
+
 ### Intro
 
-<a href="https://elixircasts.io/reqembed" target="_blank" rel="noopener noreferrer">
+Watch this [ElixirCasts episode](https://elixircasts.io/reqembed) that covers all the features listed below.
+
+<a href="https://elixircasts.io/reqembed">
   <img src="https://raw.githubusercontent.com/leandrocp/req_embed/refs/heads/main/assets/elixir_casts.png" width="512" alt="ElixirCasts Episode 196" />
 </a>
 
