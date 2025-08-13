@@ -3,7 +3,7 @@ defmodule ReqEmbedTest do
 
   describe "providers" do
     test "loads all providers" do
-      assert ReqEmbed.Providers.all() |> length() == 346
+      assert ReqEmbed.Providers.all() |> length() == 355
     end
 
     test "format" do
