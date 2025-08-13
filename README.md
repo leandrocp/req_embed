@@ -35,11 +35,11 @@ mix igniter.install req_embed
 
 ## Usage
 
-<div align="center">
-  <a href="https://elixircasts.io/reqembed" target="_blank" rel="noopener noreferrer">
-    <img src="https://raw.githubusercontent.com/leandrocp/req_embed/main/assets/images/elixir_casts.png" width="360" alt="ElixirCasts Episode 196" />
-  </a>
-</div>
+### Intro
+
+<a href="https://elixircasts.io/reqembed" target="_blank" rel="noopener noreferrer">
+  <img src="https://raw.githubusercontent.com/leandrocp/req_embed/refs/heads/main/assets/elixir_casts.png" width="512" alt="ElixirCasts Episode 196" />
+</a>
 
 ### Req Plugin
 
