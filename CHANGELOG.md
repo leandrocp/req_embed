@@ -2,9 +2,15 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add providers Beta QuellenSuche, Carbon, Everwall, Filestage, Form-Data, GW2 Fashions, Kubit, Naver Clip, QuellenSuche, SOOP, 
+
 ### Changed
 
+- **Breaking:** Remove provider afreecaTV
 - **Breaking:** Require minimum Elixir 1.15
+- Update providers: Medienarchiv, Supercut, Webcrumbs
 
 ## [0.2.3] - 2025-05-30
 
