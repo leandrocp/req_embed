@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1] - 2025-08-13
+
+### Changed
+
+- Add https://elixircasts.io/reqembed in documentation
+- Improve documentation in overall
+
 ## [0.3.0] - 2025-08-12
 
 ### Added
