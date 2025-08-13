@@ -11,12 +11,12 @@ defmodule ReqEmbed do
 
   ## Options
 
-    * `:query` (`t:map/0`) - Defaults to `%{}`. The query parameters to be sent to the oEmbed endpoint,
+    * `:query` (`t:map/0`) (optional, default: `%{}`) - The query parameters to be sent to the oEmbed endpoint,
       like `:maxwidth`, `:maxheight`, and others supported by the provider.
       The parameters `:url` and `:format` are managed by the plugin, you can't override them.
       See section [2.2 Consumer Request](https://oembed.com/#section2) for more info.
 
-    * `:discover` (`t:boolean/0`) - Defaults to `true`. When enabled, it will first attempt to auto-discover
+    * `:discover` (`t:boolean/0`) (optional, default: `true`) - When enabled, it will first attempt to auto-discover
       the oEmbed endpoint by looking for the link tag in the HTML response. If no link tag is found, it will
       fallback to searching for a known provider endpoint. When disabled, it will skip the HTML parsing step
       and only use the known provider endpoints.
@@ -25,14 +25,29 @@ defmodule ReqEmbed do
 
       iex> req = Req.new() |> ReqEmbed.attach()
       iex> Req.get!(req, url: "https://x.com/ThinkingElixir/status/1848702455313318251").body
-      iex> %ReqEmbed.Rich{
-             type: "rich",
-             version: "1.0",
-             author_name: "ThinkingElixir",
-             author_url: "https://twitter.com/ThinkingElixir",
-             html: "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">News includes upcoming Elixir v1.18 ...
-             ...
-           }
+      %ReqEmbed.Rich{
+        type: "rich",
+        version: "1.0",
+        author_name: "ThinkingElixir",
+        author_url: "https://twitter.com/ThinkingElixir",
+        html: "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">News includes upcoming Elixir v1.18 ...
+        ...
+      }
+
+    Supports redirects too:
+
+      iex> req = Req.new() |> ReqEmbed.attach()
+      iex> Req.get!(req, url: "https://flic.kr/p/SHA4VC").body
+      %ReqEmbed.Photo{
+        type: "photo",
+        version: "1.0",
+        title: "Above the cloud",
+        author_name: "tomms",
+        author_url: "https://www.flickr.com/photos/tomms/",
+        thumbnail_url: "https://live.staticflickr.com/665/33288461746_67348617ea_q.jpg",
+        url: "https://live.staticflickr.com/665/33288461746_67348617ea_b.jpg",
+        ...
+      }
 
   """
   @spec attach(Req.Request.t(), keyword()) :: Req.Request.t()
@@ -183,8 +198,8 @@ defmodule ReqEmbed do
 
   ## Options
 
-    * `:class` (`t:String.t/0`) - Defaults to `nil`. CSS class to be added into the <iframe> tag, if used it removes both `width` and `height` attributes.
-    * `:include_caption` (`t:boolean/0`) - Defaults to `true`. When enabled, it will include the photo title in `<figcaption>`.
+    * `:class` (`t:String.t/0`) (optional, default: `nil`) - CSS class to be added into the `<iframe>` tag, if used it removes both `width` and `height` attributes.
+    * `:include_caption` (`t:boolean/0`) (optional, default: `true`) - When enabled, it will include the photo title in `<figcaption>`.
 
   ## Examples
 
@@ -275,19 +290,27 @@ defmodule ReqEmbed do
   Phoenix Component to render oEmbed content.
 
   Requires [phoenix_live_view](https://hex.pm/packages/phoenix_live_view) to be installed,
-  otherwise you can use `html/2` directly.
+  otherwise you can use `html/2` directly. This component is essentially a wrapper for `html/2`.
 
-  This component is essentially a wrapper for `html/2`.
+  ## Examples
 
-  See `ReqEmbed.Component.embed/1` for attributes doc.
+      <ReqEmbed.embed url="https://www.youtube.com/watch?v=XfELJU1mRMg" />
 
-  ## Example
+      <ReqEmbed.embed
+        url="https://x.com/josevalim/status/1793946517390458957"
+        class={@embed_class}
+      />
 
-      def render(assigns) do
-        ~H\"\"\"
-        <%= ReqEmbed.embed(url: "https://www.youtube.com/watch?v=XfELJU1mRMg") %>
-        \"\"\"
-      end
+      <ReqEmbed.embed
+        url="https://www.flickr.com/photos/example/123456789"
+        include_caption={true}
+      />
+
+  ## Attributes
+
+    * `url` (`t:String.t/0`) (required) - URL of the resource to be embedded.
+    * `class` (`t:String.t/0`) (optional) - CSS class to be added into the `<iframe>` tag. Note that when used, it removes both `width` and `height` attributes.
+    * `include_caption` (`t:boolean/0`) (optional, default: `true`) - When enabled, it will include the photo title in `<figcaption>`.
 
   """
   def embed(assigns), do: ReqEmbed.Component.embed(assigns)

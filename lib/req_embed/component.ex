@@ -1,10 +1,6 @@
 if Code.ensure_loaded?(Phoenix.HTML) && Code.ensure_loaded?(Phoenix.Component) do
   defmodule ReqEmbed.Component do
-    @moduledoc """
-    Phoenix LiveView Components to embed rich content using oEmbed.
-
-    Adding `:phoenix_live_view` to your dependencies is required to use this module.
-    """
+    @moduledoc false
 
     use Phoenix.Component
 

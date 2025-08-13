@@ -35,7 +35,13 @@ mix igniter.install req_embed
 
 ## Usage
 
-### Req plugin
+<div align="center">
+  <a href="https://elixircasts.io/reqembed" target="_blank" rel="noopener noreferrer">
+    <img src="https://raw.githubusercontent.com/leandrocp/req_embed/main/assets/images/elixir_casts.png" width="360" alt="ElixirCasts Episode 196" />
+  </a>
+</div>
+
+### Req Plugin
 
 ```elixir
 req = Req.new() |> ReqEmbed.attach()
@@ -69,7 +75,7 @@ When successful, the response body will contain either one of the following stru
 
 ### Phoenix Component
 
-Use [ReqEmbed.embed/1](https://hexdocs.pm/req_embed/ReqEmbed.html#req_embed/1) to display oEmbed content in HEEx templates:
+Use [ReqEmbed.embed/1](https://hexdocs.pm/req_embed/ReqEmbed.html#embed/1) to display oEmbed content in HEEx templates:
 
 ```heex
 <ReqEmbed.embed url="https://www.youtube.com/watch?v=XfELJU1mRMg" class="aspect-video" />
