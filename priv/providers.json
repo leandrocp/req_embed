@@ -334,6 +334,22 @@
         ]
     },
     {
+        "provider_name": "Audius",
+        "provider_url": "https://audius.co",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://audius.co/*"
+                ],
+                "url": "https://audius.co/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Backtracks",
         "provider_url": "https://backtracks.fm",
         "endpoints": [
@@ -1203,6 +1219,19 @@
         ]
     },
     {
+        "provider_name": "ElevenLabs",
+        "provider_url": "https://elevenlabs.io/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://elevenlabs.io/*"
+                ],
+                "url": "https://elevenlabs.io/next/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Embedery",
         "provider_url": "https://embedery.com/",
         "endpoints": [
@@ -1692,6 +1721,22 @@
                     "https://app.gong.io/call?id=*"
                 ],
                 "url": "https://app.gong.io/oembed",
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
+        "provider_name": "GOOD FOR JOB",
+        "provider_url": "https://www.good-for-job.jp",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.good-for-job.jp/slides/*"
+                ],
+                "url": "https://www.good-for-job.jp/api/oembed",
+                "discovery": true,
                 "formats": [
                     "json"
                 ]
@@ -4256,6 +4301,8 @@
                 "schemes": [
                     "https://www.sudomemo.net/watch/*",
                     "http://www.sudomemo.net/watch/*",
+                    "https://archive.sudomemo.net/watch/*",
+                    "http://archive.sudomemo.net/watch/*",
                     "https://flipnot.es/*",
                     "http://flipnot.es/*"
                 ],
@@ -4417,12 +4464,16 @@
                     "http://www.tickcounter.com/ticker/*",
                     "http://www.tickcounter.com/clock/*",
                     "http://www.tickcounter.com/worldclock/*",
+                    "http://www.tickcounter.com/embed/*",
+                    "http://www.tickcounter.com/full/*",
                     "https://www.tickcounter.com/widget/*",
                     "https://www.tickcounter.com/countdown/*",
                     "https://www.tickcounter.com/countup/*",
                     "https://www.tickcounter.com/ticker/*",
                     "https://www.tickcounter.com/clock/*",
-                    "https://www.tickcounter.com/worldclock/*"
+                    "https://www.tickcounter.com/worldclock/*",
+                    "https://www.tickcounter.com/embed/*",
+                    "https://www.tickcounter.com/full/*"
                 ],
                 "url": "https://www.tickcounter.com/oembed",
                 "discovery": true
