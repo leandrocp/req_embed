@@ -2,7 +2,7 @@ defmodule ReqEmbed.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/leandrocp/req_embed"
-  @version "0.3.2-dev"
+  @version "0.3.2"
 
   def project do
     [
