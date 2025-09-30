@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Added
+- Added providers: Audius, ElevenLabs, GOOD FOR JOB.
+
 ## [0.3.1] - 2025-08-13
 
 ### Changed
