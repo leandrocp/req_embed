@@ -50,7 +50,8 @@ defmodule ReqEmbed.MixProject do
         "priv",
         "README.md",
         "LICENSE",
-        "CHANGELOG.md"
+        "CHANGELOG.md",
+        "usage-rules.md"
       ]
     ]
   end
