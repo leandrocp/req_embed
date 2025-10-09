@@ -44,14 +44,14 @@ defmodule ReqEmbed.MixProject do
         Changelog: "https://hexdocs.pm/req_embed/changelog.html",
         GitHub: @source_url
       },
-      files: [
-        "mix.exs",
-        "lib",
-        "priv",
-        "README.md",
-        "LICENSE",
-        "CHANGELOG.md",
-        "usage-rules.md"
+      files: ~w[
+        mix.exs
+        lib
+        priv
+        README.md
+        LICENSE
+        CHANGELOG.md
+        usage-rules.md
       ]
     ]
   end
