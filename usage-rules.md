@@ -476,3 +476,4 @@ end
 - oEmbed Spec: https://oembed.com/
 - Supported providers: 350+ including YouTube, Twitter, Instagram, Flickr, Vimeo, SoundCloud, etc.
 - Provider list: https://github.com/leandrocp/req_embed/blob/main/priv/providers.json
+- ElixirCasts episode: https://elixircasts.io/reqembed
