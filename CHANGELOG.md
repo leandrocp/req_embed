@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+
+- Update CodePen test expectations to match current oEmbed API response with `allowfullscreen` and `allowpaymentrequest` attributes
+
 ## 0.3.3 - 2025-10-09
 
 ### Added
