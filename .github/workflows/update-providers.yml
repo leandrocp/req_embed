@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '.github/workflows/update_providers.yml'
+      - '.github/workflows/update-providers.yml'
 
 jobs:
   update-providers:
