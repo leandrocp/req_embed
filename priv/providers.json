@@ -198,6 +198,23 @@
         ]
     },
     {
+        "provider_name": "AppForceStudio",
+        "provider_url": "https://appforcestudio.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://appforcestudio.com/playground/*"
+                ],
+                "url": "https://us-central1-themerax-cc903.cloudfunctions.net/playgroundApi/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "ArcGIS StoryMaps",
         "provider_url": "https://storymaps.arcgis.com",
         "endpoints": [
@@ -530,11 +547,18 @@
     },
     {
         "provider_name": "Box Office Buz",
-        "provider_url": "http://boxofficebuz.com",
+        "provider_url": "https://boxofficebuz.com",
         "endpoints": [
             {
-                "url": "http://boxofficebuz.com/oembed",
-                "discovery": true
+                "schemes": [
+                    "https://boxofficebuz.com/embed/video/*"
+                ],
+                "url": "https://api.boxofficebuz.com/v2/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
             }
         ]
     },
@@ -2731,6 +2755,13 @@
                     "https://miro.com/app/board/*"
                 ],
                 "url": "https://miro.com/api/v1/oembed",
+                "discovery": true
+            },
+            {
+                "schemes": [
+                    "https://miro.com/video-player/*"
+                ],
+                "url": "https://miro.com/video-player/oembed",
                 "discovery": true
             }
         ]
