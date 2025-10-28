@@ -144,7 +144,7 @@ defmodule ReqEmbedTest do
       assert_html(
         "https://codepen.io/juliangarnier/pen/krNqZO",
         """
-        <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+        <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" allowfullscreen="true" allowpaymentrequest="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
         """
       )
     end
@@ -153,7 +153,7 @@ defmodule ReqEmbedTest do
       assert_html(
         "https://codepen.io/juliangarnier/pen/krNqZO",
         """
-        <iframe allowtransparency="true" class="cp_embed_iframe aspect-square" frameborder="0" id="cp_embed_idhuG" scrolling="no" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" style="width: 100%; overflow: hidden;" title="CSS 3D Solar System"></iframe>
+        <iframe allowfullscreen="true" allowpaymentrequest="true" allowtransparency="true" class="cp_embed_iframe aspect-square" frameborder="0" id="cp_embed_idhuG" scrolling="no" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" style="width: 100%; overflow: hidden;" title="CSS 3D Solar System"></iframe>
         """,
         class: "aspect-square"
       )
@@ -213,7 +213,7 @@ defmodule ReqEmbedTest do
           <ReqEmbed.embed url={@url} />
           """,
           """
-          <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+          <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" allowfullscreen="true" allowpaymentrequest="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
           """
         )
       end
