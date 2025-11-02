@@ -3783,6 +3783,19 @@
         ]
     },
     {
+        "provider_name": "Sato Video Player",
+        "provider_url": "http://satoplayer.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://api.satoplayer.com/players/embed/*"
+                ],
+                "url": "https://api.satoplayer.com/players/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "sbedit",
         "provider_url": "https://sbedit.net",
         "endpoints": [
