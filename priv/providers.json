@@ -833,6 +833,19 @@
         ]
     },
     {
+        "provider_name": "Clueso",
+        "provider_url": "https://clueso.io",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://clueso.site/*"
+                ],
+                "url": "https://clueso.site/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Clyp",
         "provider_url": "http://clyp.it/",
         "endpoints": [
@@ -1427,7 +1440,13 @@
         "endpoints": [
             {
                 "schemes": [
-                    "https://www.figma.com/file/*"
+                    "https://www.figma.com/file/*",
+                    "https://www.figma.com/design/*",
+                    "https://www.figma.com/board/*",
+                    "https://www.figma.com/slides/*",
+                    "https://www.figma.com/buzz/*",
+                    "https://www.figma.com/site/*",
+                    "https://www.figma.com/make/*"
                 ],
                 "url": "https://www.figma.com/api/oembed",
                 "discovery": true
@@ -3487,6 +3506,19 @@
                     "https://*.prezi.com/v/*"
                 ],
                 "url": "https://prezi.com/v/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Programmingly.dev",
+        "provider_url": "https://programmingly.dev",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://programmingly.dev/snippets/*"
+                ],
+                "url": "https://programmingly.dev/api/oembed",
                 "discovery": true
             }
         ]
