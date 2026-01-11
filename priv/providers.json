@@ -2325,6 +2325,23 @@
         ]
     },
     {
+        "provider_name": "Juntos",
+        "provider_url": "https://juntos.live",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://play.juntos.live/solo/*",
+                    "https://play.juntos.live/host/quiz/*"
+                ],
+                "url": "https://play.juntos.live/api/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "KakaoTv",
         "provider_url": "https://tv.kakao.com/",
         "endpoints": [
@@ -4483,6 +4500,20 @@
                     "https://www.ted.com/talks/*"
                 ],
                 "url": "https://www.ted.com/services/v1/oembed.{format}",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Tella",
+        "provider_url": "https://www.tella.tv/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.tella.tv/video/*",
+                    "https://tella.video/*"
+                ],
+                "url": "https://www.tella.tv/api/oembed",
                 "discovery": true
             }
         ]
