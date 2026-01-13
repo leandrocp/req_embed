@@ -1,11 +1,10 @@
 # Changelog
 
-## Unreleased
+## 0.3.4 - 2026-01-13
 
 ### Changed
 - Update CodePen test expectations to match current oEmbed API response with `allowfullscreen` and `allowpaymentrequest` attributes
-- Fix boxofficebuz provider URL
-- Add provider appforcestudio
+- Update providers: boxofficebuz, appforcestudio, satoplayer, clueso, programmingly, juntos, tella
 
 ## 0.3.3 - 2025-10-09
 
