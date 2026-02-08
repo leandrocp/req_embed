@@ -2509,6 +2509,25 @@
         ]
     },
     {
+        "provider_name": "Land of Assets",
+        "provider_url": "https://landofassets.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://landofassets.com/*",
+                    "https://landofassets.com/*/assets",
+                    "https://landofassets.com/*/assets/*",
+                    "https://landofassets.com/*/assets/*/embed"
+                ],
+                "url": "https://api.landofassets.com/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "LearningApps.org",
         "provider_url": "http://learningapps.org/",
         "endpoints": [
@@ -3299,6 +3318,20 @@
         ]
     },
     {
+        "provider_name": "Parta.io",
+        "provider_url": "https://parta.io/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://app.parta.io/core/embed/*",
+                    "https://*.parta.io/core/embed/*"
+                ],
+                "url": "https://app.parta.io/core/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Pastery",
         "provider_url": "https://www.pastery.net",
         "endpoints": [
@@ -4058,6 +4091,20 @@
                     "https://onsizzle.com/i/*"
                 ],
                 "url": "https://onsizzle.com/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Sketch",
+        "provider_url": "https://www.sketch.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.sketch.com/s/*",
+                    "https://www.sketch.com/preview/*"
+                ],
+                "url": "https://graphql.sketch.cloud/embed/oembed",
                 "discovery": true
             }
         ]
