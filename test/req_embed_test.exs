@@ -142,18 +142,18 @@ defmodule ReqEmbedTest do
   describe "html: rich" do
     test "render" do
       assert_html(
-        "https://codepen.io/juliangarnier/pen/krNqZO",
+        "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
         """
-        <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" allowfullscreen="true" allowpaymentrequest="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+        <iframe style="border-radius: 12px" width="100%" height="152" title="Spotify Embed: Never Gonna Give You Up" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" src="https://open.spotify.com/embed/track/4PTG3Z6ehGkBFwjybzWkR8?utm_source=oembed"></iframe>
         """
       )
     end
 
     test "append class" do
       assert_html(
-        "https://codepen.io/juliangarnier/pen/krNqZO",
+        "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
         """
-        <iframe allowfullscreen="true" allowpaymentrequest="true" allowtransparency="true" class="cp_embed_iframe aspect-square" frameborder="0" id="cp_embed_idhuG" scrolling="no" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" style="width: 100%; overflow: hidden;" title="CSS 3D Solar System"></iframe>
+        <iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="allowfullscreen" class="aspect-square" frameborder="0" loading="lazy" src="https://open.spotify.com/embed/track/4PTG3Z6ehGkBFwjybzWkR8?utm_source=oembed" style="border-radius: 12px" title="Spotify Embed: Never Gonna Give You Up"></iframe>
         """,
         class: "aspect-square"
       )
@@ -206,14 +206,14 @@ defmodule ReqEmbedTest do
 
     describe "component: rich" do
       test "render" do
-        assigns = %{url: "https://codepen.io/juliangarnier/pen/krNqZO"}
+        assigns = %{url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8"}
 
         assert_rendered(
           ~H"""
           <ReqEmbed.embed url={@url} />
           """,
           """
-          <iframe id="cp_embed_idhuG" src="https://codepen.io/juliangarnier/embed/preview/idhuG?default-tabs=css%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=idhuG" title="CSS 3D Solar System" scrolling="no" frameborder="0" height="300" allowtransparency="true" allowfullscreen="true" allowpaymentrequest="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+          <iframe style="border-radius: 12px" width="100%" height="152" title="Spotify Embed: Never Gonna Give You Up" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" src="https://open.spotify.com/embed/track/4PTG3Z6ehGkBFwjybzWkR8?utm_source=oembed"></iframe>
           """
         )
       end
