@@ -35,6 +35,8 @@ if Code.ensure_loaded?(Phoenix.HTML) && Code.ensure_loaded?(Phoenix.Component) d
   end
 else
   defmodule ReqEmbed.Component do
+    @moduledoc false
+
     def embed(_assigns) do
       raise """
       :phoenix_live_view is required to use ReqEmbed.Component.embed/1

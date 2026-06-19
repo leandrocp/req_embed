@@ -78,9 +78,9 @@ defmodule ReqEmbedTest do
                title: nil,
                width: 550,
                author_name: "ThinkingElixir",
-               author_url: "https://twitter.com/ThinkingElixir",
-               provider_name: "Twitter",
-               provider_url: "https://twitter.com",
+               author_url: "https://x.com/ThinkingElixir",
+               provider_name: "X",
+               provider_url: "https://x.com",
                html: html
              } =
                Req.get!(req, url: "https://x.com/ThinkingElixir/status/1848702455313318251").body
