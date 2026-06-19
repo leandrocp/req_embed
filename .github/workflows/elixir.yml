@@ -11,3 +11,5 @@ jobs:
     uses: leandrocp/github-actions/.github/workflows/elixir-test.yml@main
   lint:
     uses: leandrocp/github-actions/.github/workflows/elixir-lint.yml@main
+    with:
+      credo: true
