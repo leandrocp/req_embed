@@ -29,7 +29,7 @@ defmodule ReqEmbed do
         type: "rich",
         version: "1.0",
         author_name: "ThinkingElixir",
-        author_url: "https://twitter.com/ThinkingElixir",
+        author_url: "https://x.com/ThinkingElixir",
         html: "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">News includes upcoming Elixir v1.18 ...
         ...
       }

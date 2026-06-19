@@ -76,7 +76,8 @@ defmodule ReqEmbed.MixProject do
       {:ex_doc, ">= 0.0.0", only: :docs},
       {:makeup_elixir, "~> 1.0", only: :docs},
       {:makeup_eex, "~> 2.0", only: :docs},
-      {:makeup_syntect, "~> 0.1", only: :docs}
+      {:makeup_syntect, "~> 0.1", only: :docs},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end
 

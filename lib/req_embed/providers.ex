@@ -64,11 +64,13 @@ defmodule ReqEmbed.Providers do
 
   defp find_matching_provider(providers, url) do
     Enum.find(providers, fn provider ->
-      Enum.any?(provider.endpoints, fn endpoint ->
-        Enum.any?(endpoint.schemes, fn pattern ->
-          Regex.match?(~r/#{pattern}/, url)
-        end)
-      end)
+      Enum.any?(provider.endpoints, &endpoint_matches_url?(&1, url))
+    end)
+  end
+
+  defp endpoint_matches_url?(endpoint, url) do
+    Enum.any?(endpoint.schemes, fn pattern ->
+      Regex.match?(~r/#{pattern}/, url)
     end)
   end
 end
