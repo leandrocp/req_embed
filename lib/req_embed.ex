@@ -56,7 +56,7 @@ defmodule ReqEmbed do
 
     request
     |> Req.Request.register_options([:oembed_query, :oembed_discover])
-    |> Req.Request.merge_options(oembed_query: query, oembed_discover: options[:discover] || true)
+    |> Req.Request.merge_options(oembed_query: query, oembed_discover: Keyword.get(options, :discover, true))
     |> Req.Request.prepend_request_steps(oembed_url: &oembed_url/1)
     |> Req.Request.append_response_steps(oembed_decode: &decode/1)
   end

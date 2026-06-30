@@ -41,6 +41,11 @@ defmodule ReqEmbedTest do
   end
 
   describe "oembed" do
+    test "preserves explicit discover: false option" do
+      req = Req.new() |> ReqEmbed.attach(discover: false)
+      refute Req.Request.get_option(req, :oembed_discover)
+    end
+
     test "discover the video type" do
       req = Req.new() |> ReqEmbed.attach()
 
