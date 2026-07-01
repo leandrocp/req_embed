@@ -215,6 +215,22 @@
         ]
     },
     {
+        "provider_name": "Apple Podcasts",
+        "provider_url": "https://podcasts.apple.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://podcasts.apple.com/*"
+                ],
+                "url": "https://podcasts.apple.com/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "ArcGIS StoryMaps",
         "provider_url": "https://storymaps.arcgis.com",
         "endpoints": [
@@ -452,15 +468,19 @@
         ]
     },
     {
-        "provider_name": "biqnetwork",
-        "provider_url": "https://biqapp.com/",
+        "provider_name": "biqapp",
+        "provider_url": "https://biqapp.net/",
         "endpoints": [
             {
                 "schemes": [
-                    "https://cloud.biqapp.com/*"
+                    "https://biqapp.net/f/*",
+                    "https://www.biqapp.net/f/*"
                 ],
-                "url": "https://biqapp.com/api/v1/video/oembed",
-                "discovery": true
+                "url": "https://biqapp.net/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -563,6 +583,24 @@
         ]
     },
     {
+        "provider_name": "Brightcove",
+        "provider_url": "https://www.brightcove.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://players.brightcove.net/*/*/index.html?videoId=*",
+                    "https://players.brightcove.net/*/*/index.html?playlistId=*",
+                    "https://bcove.video/*"
+                ],
+                "url": "https://oembed.brightcove.com/",
+                "discovery": false,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "BrioVR",
         "provider_url": "https://view.briovr.com/",
         "endpoints": [
@@ -589,11 +627,13 @@
         ]
     },
     {
-        "provider_name": "Bunny",
+        "provider_name": "bunny.net",
         "provider_url": "https://bunny.net/",
         "endpoints": [
             {
                 "schemes": [
+                    "https://player.mediadelivery.net/*",
+                    "http://player.mediadelivery.net/*",
                     "https://iframe.mediadelivery.net/*",
                     "http://iframe.mediadelivery.net/*",
                     "https://video.bunnycdn.com/*",
@@ -801,6 +841,23 @@
                     "https://chroco.ooo/story/*"
                 ],
                 "url": "https://chroco.ooo/embed",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "CircleZeroEight",
+        "provider_url": "https://www.circlezeroeight.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.circlezeroeight.com/features/*",
+                    "https://www.circlezeroeight.com/news/*",
+                    "https://www.circlezeroeight.com/sport/*",
+                    "https://www.circlezeroeight.com/style/*",
+                    "https://www.circlezeroeight.com/culture/*"
+                ],
+                "url": "https://www.circlezeroeight.com/api/oembed",
                 "discovery": true
             }
         ]
@@ -1088,6 +1145,23 @@
         ]
     },
     {
+        "provider_name": "Demofly",
+        "provider_url": "https://demofly.ai/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://app.demofly.ai/s/*",
+                    "https://demofly.ai/s/*"
+                ],
+                "url": "https://app.demofly.ai/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Deseret News",
         "provider_url": "https://www.deseret.com",
         "endpoints": [
@@ -1170,6 +1244,19 @@
                 "formats": [
                     "json"
                 ]
+            }
+        ]
+    },
+    {
+        "provider_name": "DocumentCloud",
+        "provider_url": "https://www.documentcloud.org",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.documentcloud.org/documents/*"
+                ],
+                "url": "https://api.www.documentcloud.org/api/oembed",
+                "discovery": true
             }
         ]
     },
@@ -1264,6 +1351,19 @@
                     "https://elevenlabs.io/*"
                 ],
                 "url": "https://elevenlabs.io/next/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Embases",
+        "provider_url": "https://embases.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.embases.com/e/*"
+                ],
+                "url": "https://www.embases.com/api/oembed",
                 "discovery": true
             }
         ]
@@ -1430,6 +1530,19 @@
                     "https://faithlifetv.com/media/resource/*/*"
                 ],
                 "url": "https://faithlifetv.com/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "FazenHaus",
+        "provider_url": "https://haus.fazen.co/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://haus.fazen.co/embed/music/*"
+                ],
+                "url": "https://haus.fazen.co/api/oembed",
                 "discovery": true
             }
         ]
@@ -1688,6 +1801,20 @@
         ]
     },
     {
+        "provider_name": "GeometryViewer",
+        "provider_url": "https://geometryviewer.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://geometryviewer.com/v/*",
+                    "https://www.geometryviewer.com/v/*"
+                ],
+                "url": "https://geometryviewer.com/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Getty Images",
         "provider_url": "http://www.gettyimages.com/",
         "endpoints": [
@@ -1937,6 +2064,30 @@
                 ],
                 "url": "https://www.hippovideo.io/services/oembed",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Hivo",
+        "provider_url": "https://app.hivo.com.au/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://cdn.hivo.com.au/*",
+                    "https://cdn.digital-assets.uq.edu.au/*",
+                    "https://cdn.southerndesigngroup.com/*",
+                    "https://freedom.hivocdn.com/*",
+                    "https://cdn.cockburn.wa.gov.au/*",
+                    "https://cdn.somnomed.com/*",
+                    "https://cdn.snowtunnel.com/*",
+                    "https://cdn.brenclosures.com.au/*"
+                ],
+                "url": "https://app.hivo.com.au/api/drupal/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
             }
         ]
     },
@@ -2304,6 +2455,23 @@
         ]
     },
     {
+        "provider_name": "Jawafdehi",
+        "provider_url": "https://jawafdehi.org",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://jawafdehi.org/case/*"
+                ],
+                "url": "https://api.jawafdehi.org/oembed/",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Jovian",
         "provider_url": "https://jovian.com/",
         "endpoints": [
@@ -2338,6 +2506,22 @@
                     "json"
                 ],
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "JustSpin",
+        "provider_url": "https://www.justspin.cc/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.justspin.cc/workouts/*"
+                ],
+                "url": "https://www.justspin.cc/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -2467,6 +2651,24 @@
         ]
     },
     {
+        "provider_name": "Kommodo",
+        "provider_url": "https://kommodo.ai/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://kommodo.ai/recordings/*",
+                    "https://kommodo.ai/guides/*"
+                ],
+                "url": "https://kommodo.ai/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Kooapp",
         "provider_url": "https://kooapp.com",
         "endpoints": [
@@ -2524,6 +2726,23 @@
                     "json"
                 ],
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Laude",
+        "provider_url": "https://laude.org",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://laude.org/impact/*",
+                    "https://laude.org/im/*"
+                ],
+                "url": "http://laude.org/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -2593,19 +2812,18 @@
         ]
     },
     {
-        "provider_name": "Livestream",
-        "provider_url": "https://livestream.com/",
+        "provider_name": "Livid",
+        "provider_url": "https://livid.com",
         "endpoints": [
             {
                 "schemes": [
-                    "https://livestream.com/accounts/*/events/*",
-                    "https://livestream.com/accounts/*/events/*/videos/*",
-                    "https://livestream.com/*/events/*",
-                    "https://livestream.com/*/events/*/videos/*",
-                    "https://livestream.com/*/*",
-                    "https://livestream.com/*/*/videos/*"
+                    "https://livid.com/watch/*"
                 ],
-                "url": "https://livestream.com/oembed",
+                "url": "https://livid.com/oembed",
+                "formats": [
+                    "json",
+                    "xml"
+                ],
                 "discovery": true
             }
         ]
@@ -3474,6 +3692,23 @@
         ]
     },
     {
+        "provider_name": "Plinth",
+        "provider_url": "https://plinth.it",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://plinth.it/model-viewer/*/*"
+                ],
+                "url": "https://plinth.it/model-viewer/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Plusdocs",
         "provider_url": "http://plusdocs.com",
         "endpoints": [
@@ -3773,6 +4008,22 @@
         ]
     },
     {
+        "provider_name": "Risky Business",
+        "provider_url": "https://risky.biz/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://risky.biz/*"
+                ],
+                "url": "https://risky.biz/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Roomshare",
         "provider_url": "http://roomshare.jp",
         "endpoints": [
@@ -3806,6 +4057,10 @@
         "provider_url": "https://rumble.com/",
         "endpoints": [
             {
+                "schemes": [
+                    "https://rumble.com/*",
+                    "https://rumble.com/shorts/*"
+                ],
                 "url": "https://rumble.com/api/Media/oembed.{format}",
                 "discovery": true
             }
@@ -3821,6 +4076,41 @@
                     "https://embed.runkit.com/*,"
                 ],
                 "url": "https://embed.runkit.com/oembed",
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
+        "provider_name": "rushes.cc",
+        "provider_url": "https://www.rushes.cc",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.rushes.cc/video/*",
+                    "https://www.rushes.cc/embed/*",
+                    "https://rushes.cc/video/*",
+                    "https://rushes.cc/embed/*"
+                ],
+                "url": "https://api.rushes.cc/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
+        "provider_name": "Sagenverse",
+        "provider_url": "https://sagenverse.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://app2.sagenverse.com/embed/*"
+                ],
+                "url": "https://app2.sagenverse.com/oembed",
+                "discovery": true,
                 "formats": [
                     "json"
                 ]
@@ -4238,17 +4528,17 @@
     },
     {
         "provider_name": "SOOP",
-        "provider_url": "https://www.sooplive.co.kr",
+        "provider_url": "https://www.sooplive.com",
         "endpoints": [
             {
                 "schemes": [
-                    "https://vod.sooplive.co.kr/player/",
+                    "https://vod.sooplive.com/player/",
                     "https://v.afree.ca/ST/",
-                    "https://vod.sooplive.co.kr/ST/",
-                    "https://vod.sooplive.co.kr/PLAYER/STATION/",
-                    "https://play.sooplive.co.kr/"
+                    "https://vod.sooplive.com/ST/",
+                    "https://vod.sooplive.com/PLAYER/STATION/",
+                    "https://play.sooplive.com/"
                 ],
-                "url": "https://openapi.sooplive.co.kr/oembed/embedinfo",
+                "url": "https://openapi.sooplive.com/oembed/embedinfo",
                 "discovery": true
             }
         ]
@@ -4754,6 +5044,20 @@
         ]
     },
     {
+        "provider_name": "TryCLI Studio",
+        "provider_url": "https://trycli.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://trycli.com/e/*",
+                    "https://trycli.com/*/*"
+                ],
+                "url": "https://trycli.com/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Tumblr",
         "provider_url": "https://www.tumblr.com",
         "endpoints": [
@@ -5217,12 +5521,27 @@
         ]
     },
     {
+        "provider_name": "Wewtalk",
+        "provider_url": "https://www.wewtalk.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.wewtalk.com/voice/*",
+                    "https://wewtalk.com/voice/*"
+                ],
+                "url": "https://www.wewtalk.com/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Whimsical",
         "provider_url": "https://www.whimsical.com",
         "endpoints": [
             {
                 "schemes": [
-                    "https://whimsical.com/*"
+                    "https://whimsical.com/*",
+                    "https://whimsical.com/*/*"
                 ],
                 "url": "https://whimsical.com/api/oembed",
                 "discovery": true
