@@ -12,6 +12,9 @@ jobs:
   update-providers:
     runs-on: ubuntu-latest
 
+    env:
+      CI_TOKEN: ${{ secrets.CI_TOKEN }}
+
     permissions:
       contents: write
       pull-requests: write
@@ -26,10 +29,10 @@ jobs:
         run: just vendor-providers
 
       - name: Create Pull Request
-        if: ${{ secrets.CI_TOKEN != '' }}
+        if: ${{ env.CI_TOKEN != '' }}
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.CI_TOKEN }}
+          token: ${{ env.CI_TOKEN }}
           add-paths: |
             priv
           commit-message: "chore: update oembed providers"
