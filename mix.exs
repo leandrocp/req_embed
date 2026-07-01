@@ -61,8 +61,8 @@ defmodule ReqEmbed.MixProject do
       main: "ReqEmbed",
       source_ref: "v#{@version}",
       source_url: @source_url,
-      extras: ["CHANGELOG.md"],
-      skip_undefined_reference_warnings_on: ["CHANGELOG.md"]
+      extras: ["CHANGELOG.md", "csp.md"],
+      skip_undefined_reference_warnings_on: ["CHANGELOG.md", "csp.md"]
     ]
   end
 
