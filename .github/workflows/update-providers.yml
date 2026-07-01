@@ -35,11 +35,11 @@ jobs:
           token: ${{ env.CI_TOKEN }}
           add-paths: |
             priv
-          commit-message: "chore: update oembed providers"
-          title: "chore: update oembed providers"
+          commit-message: "feat: update oembed providers"
+          title: "feat: update oembed providers"
           body: |
             Automated PR to update oembed providers.
-            
+
             This PR was created automatically by the update-providers workflow.
           branch: update-providers
           delete-branch: true
