@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.3.5](https://github.com/leandrocp/req_embed/compare/v0.3.4...v0.3.5) (2026-07-01)
+
+
+### Features
+
+* update oembed providers ([#76](https://github.com/leandrocp/req_embed/issues/76)) ([2a393f3](https://github.com/leandrocp/req_embed/commit/2a393f3dbc65a3efc7ca61c9762ad312b6fce706))
+
+
+### Bug Fixes
+
+* respect discover: false ([e23ab1f](https://github.com/leandrocp/req_embed/commit/e23ab1f34f6ee379e26102c3d846d521c46e4c55))
+
+
+### Documentation
+
+* content security policy ([#75](https://github.com/leandrocp/req_embed/issues/75)) ([bdbfd7a](https://github.com/leandrocp/req_embed/commit/bdbfd7ad85f2efaf42b33a4b49c9a3a5f76b4f53))
+
 ## 0.3.4 - 2026-01-13
 
 ### Changed
