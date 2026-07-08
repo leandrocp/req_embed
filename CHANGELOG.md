@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.6](https://github.com/leandrocp/req_embed/compare/v0.3.5...v0.3.6) (2026-07-08)
+
+
+### Features
+
+* support extra response fields ([#77](https://github.com/leandrocp/req_embed/issues/77)) ([c9de614](https://github.com/leandrocp/req_embed/commit/c9de6148b65237ec4d8725703743f3251631fa80))
+
 ## [0.3.5](https://github.com/leandrocp/req_embed/compare/v0.3.4...v0.3.5) (2026-07-01)
 
 
