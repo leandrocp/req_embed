@@ -20,6 +20,7 @@ defmodule ReqEmbed.Link do
   * `thumbnail_url` (optional) - A URL to a thumbnail image representing the resource
   * `thumbnail_width` (optional) - The width of the optional thumbnail
   * `thumbnail_height` (optional) - The height of the optional thumbnail
+  * `extra` - Custom response fields returned by the provider
   """
   defstruct [
     :type,
@@ -32,7 +33,8 @@ defmodule ReqEmbed.Link do
     :cache_age,
     :thumbnail_url,
     :thumbnail_width,
-    :thumbnail_height
+    :thumbnail_height,
+    extra: %{}
   ]
 end
 
@@ -63,7 +65,8 @@ defmodule ReqEmbed.Photo do
     :thumbnail_height,
     :url,
     :width,
-    :height
+    :height,
+    extra: %{}
   ]
 end
 
@@ -94,7 +97,8 @@ defmodule ReqEmbed.Video do
     :thumbnail_height,
     :html,
     :width,
-    :height
+    :height,
+    extra: %{}
   ]
 end
 
@@ -126,6 +130,7 @@ defmodule ReqEmbed.Rich do
     :thumbnail_height,
     :html,
     :width,
-    :height
+    :height,
+    extra: %{}
   ]
 end

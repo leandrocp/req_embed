@@ -77,6 +77,8 @@ When successful, the response body will contain either one of the following stru
   - `ReqEmbed.Rich`
   - `ReqEmbed.Video`
 
+Provider-specific response fields are preserved in the struct's `:extra` map.
+
 ### Phoenix Component
 
 Use [ReqEmbed.embed/1](https://hexdocs.pm/req_embed/ReqEmbed.html#embed/1) to display oEmbed content in HEEx templates:

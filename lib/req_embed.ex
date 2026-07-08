@@ -123,6 +123,11 @@ defmodule ReqEmbed do
     {request, response}
   end
 
+  @link_fields ~w[type version title author_name author_url provider_name provider_url cache_age thumbnail_url thumbnail_width thumbnail_height]
+  @photo_fields @link_fields ++ ~w[url width height]
+  @video_fields @link_fields ++ ~w[html width height]
+  @rich_fields @video_fields
+
   defp decode_oembed_response(%{"type" => "photo"} = body) do
     %ReqEmbed.Photo{
       type: body["type"],
@@ -138,7 +143,8 @@ defmodule ReqEmbed do
       thumbnail_height: body["thumbnail_height"],
       url: body["url"],
       width: body["width"],
-      height: body["height"]
+      height: body["height"],
+      extra: extra_fields(body, @photo_fields)
     }
   end
 
@@ -157,7 +163,8 @@ defmodule ReqEmbed do
       thumbnail_height: body["thumbnail_height"],
       html: body["html"],
       width: body["width"],
-      height: body["height"]
+      height: body["height"],
+      extra: extra_fields(body, @video_fields)
     }
   end
 
@@ -176,7 +183,8 @@ defmodule ReqEmbed do
       thumbnail_height: body["thumbnail_height"],
       html: body["html"],
       width: body["width"],
-      height: body["height"]
+      height: body["height"],
+      extra: extra_fields(body, @rich_fields)
     }
   end
 
@@ -192,8 +200,13 @@ defmodule ReqEmbed do
       cache_age: body["cache_age"],
       thumbnail_url: body["thumbnail_url"],
       thumbnail_width: body["thumbnail_width"],
-      thumbnail_height: body["thumbnail_height"]
+      thumbnail_height: body["thumbnail_height"],
+      extra: extra_fields(body, @link_fields)
     }
+  end
+
+  defp extra_fields(body, known_fields) do
+    Map.drop(body, known_fields)
   end
 
   @doc """
