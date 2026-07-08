@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.7](https://github.com/leandrocp/req_embed/compare/v0.3.6...v0.3.7) (2026-07-08)
+
+
+### Features
+
+* update oembed providers ([#79](https://github.com/leandrocp/req_embed/issues/79)) ([d4fe0aa](https://github.com/leandrocp/req_embed/commit/d4fe0aa9bec15a45d7dc8a63d6ad0f0ce373cbaf))
+
 ## [0.3.6](https://github.com/leandrocp/req_embed/compare/v0.3.5...v0.3.6) (2026-07-08)
 
 
