@@ -74,6 +74,70 @@ defmodule ReqEmbedTest do
       assert html =~ "iframe"
     end
 
+    test "preserves custom fields in video responses" do
+      body = %{
+        "type" => "video",
+        "version" => "1.0",
+        "html" => "<iframe></iframe>",
+        "width" => 640,
+        "height" => 360,
+        "provider_name" => "Example",
+        "embed_id" => "abc123",
+        "flags" => ["autoplay"]
+      }
+
+      assert %ReqEmbed.Video{
+               provider_name: "Example",
+               extra: %{"embed_id" => "abc123", "flags" => ["autoplay"]}
+             } = oembed_body(body)
+    end
+
+    test "preserves custom fields in photo responses" do
+      body = %{
+        "type" => "photo",
+        "version" => "1.0",
+        "url" => "https://example.com/photo.jpg",
+        "width" => 640,
+        "height" => 480,
+        "license" => "CC-BY"
+      }
+
+      assert %ReqEmbed.Photo{extra: %{"license" => "CC-BY"}} = oembed_body(body)
+    end
+
+    test "preserves custom fields in rich responses" do
+      body = %{
+        "type" => "rich",
+        "version" => "1.0",
+        "html" => "<blockquote></blockquote>",
+        "width" => 550,
+        "height" => nil,
+        "theme" => "dark"
+      }
+
+      assert %ReqEmbed.Rich{extra: %{"theme" => "dark"}} = oembed_body(body)
+    end
+
+    test "preserves custom fields in link responses" do
+      body = %{
+        "type" => "link",
+        "version" => "1.0",
+        "title" => "Example",
+        "source_id" => 123
+      }
+
+      assert %ReqEmbed.Link{extra: %{"source_id" => 123}} = oembed_body(body)
+    end
+
+    test "preserves custom fields returned by real providers" do
+      req = Req.new() |> ReqEmbed.attach(discover: false)
+
+      assert %ReqEmbed.Rich{extra: %{"iframe_url" => iframe_url}} =
+               Req.get!(req, url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8").body
+
+      assert iframe_url =~ "https://open.spotify.com/embed/track/4PTG3Z6ehGkBFwjybzWkR8"
+    end
+
     test "discover the rich type" do
       req = Req.new() |> ReqEmbed.attach()
 
@@ -92,6 +156,15 @@ defmodule ReqEmbedTest do
 
       assert html =~ "blockquote"
     end
+  end
+
+  defp oembed_body(body) do
+    fake = fn request -> {request, Req.Response.new(status: 200, body: body)} end
+
+    Req.new(adapter: fake)
+    |> ReqEmbed.attach(discover: false)
+    |> Req.get!(url: "https://www.youtube.com/watch?v=XfELJU1mRMg")
+    |> Map.fetch!(:body)
   end
 
   defp assert_html(url, expected, opts \\ []) do
