@@ -2991,6 +2991,27 @@
         ]
     },
     {
+        "provider_name": "Nouncify",
+        "provider_url": "https://nouncify.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://nouncify.com/i/*",
+                    "https://nouncify.com/brand/*",
+                    "https://nouncify.com/e/*",
+                    "https://sandbox.nouncify.com/i/*",
+                    "https://sandbox.nouncify.com/brand/*",
+                    "https://sandbox.nouncify.com/e/*"
+                ],
+                "url": "https://nouncify.com/api/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Observable",
         "provider_url": "https://observablehq.com",
         "endpoints": [
@@ -4832,6 +4853,23 @@
                 ],
                 "url": "https://videfit.com/oembed",
                 "discovery": false
+            }
+        ]
+    },
+    {
+        "provider_name": "VidLink",
+        "provider_url": "https://vidlink.it",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://vidlink.it/videos/*",
+                    "https://www.vidlink.it/videos/*"
+                ],
+                "url": "https://www.vidlink.it/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
