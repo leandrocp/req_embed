@@ -2283,24 +2283,6 @@
         ]
     },
     {
-        "provider_name": "KakaoTv",
-        "provider_url": "https://tv.kakao.com/",
-        "endpoints": [
-            {
-                "schemes": [
-                    "https://tv.kakao.com/channel/*/cliplink/*",
-                    "https://tv.kakao.com/m/channel/*/cliplink/*",
-                    "https://tv.kakao.com/channel/v/*",
-                    "https://tv.kakao.com/channel/*/livelink/*",
-                    "https://tv.kakao.com/m/channel/*/livelink/*",
-                    "https://tv.kakao.com/channel/l/*"
-                ],
-                "url": "https://tv.kakao.com/oembed",
-                "discovery": true
-            }
-        ]
-    },
-    {
         "provider_name": "Kickstarter",
         "provider_url": "http://www.kickstarter.com",
         "endpoints": [
@@ -3453,6 +3435,25 @@
         ]
     },
     {
+        "provider_name": "Pyzia",
+        "provider_url": "https://www.pyzia.app/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.pyzia.app/dashboard?*",
+                    "https://pyzia.app/dashboard?*",
+                    "https://www.pyzia.app/embed/chart?*",
+                    "https://pyzia.app/embed/chart?*"
+                ],
+                "url": "https://www.pyzia.app/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "QTpi",
         "provider_url": "https://qtpi.gg/",
         "endpoints": [
@@ -3966,6 +3967,23 @@
         ]
     },
     {
+        "provider_name": "Skhema",
+        "provider_url": "https://skhema.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://skhema.com/embed/e/*",
+                    "https://skhema.com/embed/c/*"
+                ],
+                "url": "https://skhema.com/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Skoletube",
         "provider_url": "https://www.skoletube.dk/",
         "endpoints": [
@@ -4255,19 +4273,6 @@
                     "https://streetartcities.com/markers/*"
                 ],
                 "url": "https://oembed.streetartcities.com/oembed"
-            }
-        ]
-    },
-    {
-        "provider_name": "Subscribi",
-        "provider_url": "https://subscribi.io/",
-        "endpoints": [
-            {
-                "schemes": [
-                    "https://subscribi.io/api/oembed*"
-                ],
-                "url": "https://subscribi.io/api/oembed",
-                "discovery": true
             }
         ]
     },
@@ -5187,6 +5192,20 @@
                     "http://wp.me/*"
                 ],
                 "url": "http://public-api.wordpress.com/oembed/",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "World Event Trading",
+        "provider_url": "https://www.worldeventtrading.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://worldeventtrading.com/predictions/*",
+                    "https://www.worldeventtrading.com/predictions/*"
+                ],
+                "url": "https://www.worldeventtrading.com/api/oembed",
                 "discovery": true
             }
         ]
