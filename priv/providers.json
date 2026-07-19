@@ -755,6 +755,19 @@
         ]
     },
     {
+        "provider_name": "ChanceIndex",
+        "provider_url": "https://chanceindex.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://chanceindex.com/odds/*"
+                ],
+                "url": "https://chanceindex.com/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "ChartBlocks",
         "provider_url": "http://www.chartblocks.com/",
         "endpoints": [
@@ -807,6 +820,22 @@
                 ],
                 "url": "https://www.circuitlab.com/circuit/oembed/",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Clipform",
+        "provider_url": "https://clipform.io/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://clipform.io/*"
+                ],
+                "url": "https://api.clipform.io/v1/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -916,6 +945,24 @@
                 ],
                 "url": "http://www.collegehumor.com/oembed.{format}",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Coloring Monster",
+        "provider_url": "https://coloringmonster.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://coloringmonster.com/coloring-page/*",
+                    "https://coloringmonster.com/monsterpieces/*"
+                ],
+                "url": "https://coloringmonster.com/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
             }
         ]
     },
