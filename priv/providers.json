@@ -1032,6 +1032,22 @@
         ]
     },
     {
+        "provider_name": "d.calculators",
+        "provider_url": "https://dcalculators.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://dcalculators.com/*/*/*/"
+                ],
+                "url": "https://dcalculators.com/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "dadan",
         "provider_url": "https://www.dadan.io",
         "endpoints": [
@@ -1651,6 +1667,23 @@
                 ],
                 "url": "https://api.framer.com/web/oembed",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "FrameRate",
+        "provider_url": "https://framerate.tv/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://framerate.tv/watch/*"
+                ],
+                "url": "https://framerate.tv/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
             }
         ]
     },
@@ -4284,6 +4317,26 @@
         ]
     },
     {
+        "provider_name": "StemFM",
+        "provider_url": "https://stem.fm",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://stem.fm/session/*",
+                    "https://www.stem.fm/session/*",
+                    "https://stem.fm/s/*",
+                    "https://www.stem.fm/s/*"
+                ],
+                "url": "https://www.stem.fm/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Streamable",
         "provider_url": "https://streamable.com/",
         "endpoints": [
@@ -4784,6 +4837,20 @@
                     "https://play.typecast.ai/*"
                 ],
                 "url": "https://play.typecast.ai/oembed"
+            }
+        ]
+    },
+    {
+        "provider_name": "Typecel",
+        "provider_url": "https://app.typecel.io",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://app.typecel.io/*/*",
+                    "https://app.typecel.io/embed/*/*"
+                ],
+                "url": "https://app.typecel.io/api/oembed",
+                "discovery": false
             }
         ]
     },
