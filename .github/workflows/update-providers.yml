@@ -28,6 +28,22 @@ jobs:
       - name: Run vendor-providers
         run: just vendor-providers
 
+      - name: Detect changed providers
+        id: provider-changes
+        shell: bash
+        run: |
+          names=$(
+            jq --slurp --raw-output '
+              (.[0] | INDEX(.provider_name)) as $before
+              | (.[1] | INDEX(.provider_name)) as $after
+              | ((($before | keys_unsorted) + ($after | keys_unsorted)) | unique)
+              | map(select($before[.] != $after[.]))
+              | join(", ")
+            ' <(git show HEAD:priv/providers.json) priv/providers.json
+          )
+
+          echo "names=$names" >> "$GITHUB_OUTPUT"
+
       - name: Create Pull Request
         if: ${{ env.CI_TOKEN != '' }}
         uses: peter-evans/create-pull-request@v8
@@ -35,8 +51,8 @@ jobs:
           token: ${{ env.CI_TOKEN }}
           add-paths: |
             priv
-          commit-message: "feat: update oembed providers"
-          title: "feat: update oembed providers"
+          commit-message: "feat: update providers: ${{ steps.provider-changes.outputs.names }}"
+          title: "feat: update providers: ${{ steps.provider-changes.outputs.names }}"
           body: |
             Automated PR to update oembed providers.
 

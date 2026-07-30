@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Include changed provider names in automated update pull requests and commits
+
 ## [0.3.8](https://github.com/leandrocp/req_embed/compare/v0.3.7...v0.3.8) (2026-07-16)
 
 
