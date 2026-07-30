@@ -6,6 +6,16 @@
 
 - Include changed provider names in automated update pull requests and commits
 
+## [0.3.9](https://github.com/leandrocp/req_embed/compare/v0.3.8...v0.3.9) (2026-07-30)
+
+
+### Features
+
+* update providers: KakaoTv, Pyzia, Skhema, Subscribi, World Event Trading ([#84](https://github.com/leandrocp/req_embed/issues/84)) ([2984828](https://github.com/leandrocp/req_embed/commit/2984828eb3a25655372ee440f439dd9bff59f8da))
+* update providers: ChanceIndex, Clipform, Coloring Monster ([#86](https://github.com/leandrocp/req_embed/issues/86)) ([02a3e06](https://github.com/leandrocp/req_embed/commit/02a3e069ba1e17a5bb4961f9511d37a075e8e74d))
+* update providers: FrameRate, StemFM, Typecel, d.calculators ([#89](https://github.com/leandrocp/req_embed/issues/89)) ([1aceee8](https://github.com/leandrocp/req_embed/commit/1aceee83982ca66766b9f3c26a5fa7fc045e730a))
+* update providers: Atlantis Data Solutions ([#92](https://github.com/leandrocp/req_embed/issues/92)) ([a622410](https://github.com/leandrocp/req_embed/commit/a622410596ecf629a10b32e84388a4c72b009865))
+
 ## [0.3.8](https://github.com/leandrocp/req_embed/compare/v0.3.7...v0.3.8) (2026-07-16)
 
 
