@@ -4106,6 +4106,22 @@
         ]
     },
     {
+        "provider_name": "Slidesfly",
+        "provider_url": "https://slidesfly.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://slidesfly.xyz/d/*"
+                ],
+                "url": "https://slidesfly.com/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "SlideShare",
         "provider_url": "http://www.slideshare.net/",
         "endpoints": [
@@ -4540,6 +4556,25 @@
         ]
     },
     {
+        "provider_name": "Tegula",
+        "provider_url": "https://tegula.io",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://tegula.io/m/*",
+                    "https://www.tegula.io/m/*",
+                    "https://tegula.io/cat.html?model=*",
+                    "https://www.tegula.io/cat.html?model=*"
+                ],
+                "url": "https://tegula.io/api/oembed/",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Tella",
         "provider_url": "https://www.tella.tv/",
         "endpoints": [
@@ -4886,6 +4921,19 @@
         "endpoints": [
             {
                 "url": "https://typlog.com/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "u-poll",
+        "provider_url": "https://u-poll.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://u-poll.com/p/*"
+                ],
+                "url": "https://u-poll.com/oembed",
                 "discovery": true
             }
         ]
