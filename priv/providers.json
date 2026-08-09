@@ -723,6 +723,22 @@
         ]
     },
     {
+        "provider_name": "Castle",
+        "provider_url": "https://castle.xyz",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://castle.xyz/d/*"
+                ],
+                "url": "https://castle.xyz/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "castmake",
         "provider_url": "https://www.castmake-ai.com",
         "endpoints": [
@@ -2794,6 +2810,26 @@
                 ],
                 "url": "https://web.microsoftstream.com/oembed",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Mirame360",
+        "provider_url": "https://mirame360.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://mirame360.com/embed/*",
+                    "https://mirame360.com/embed/tour/*",
+                    "https://mirame360.com/video/url/*",
+                    "https://mirame360.com/tour/*",
+                    "https://mirame360.com/user/*/media/*"
+                ],
+                "url": "https://mirame360.com/api/oembed/",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
