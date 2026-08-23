@@ -130,15 +130,19 @@
         ]
     },
     {
-        "provider_name": "amCharts Live Editor",
-        "provider_url": "https://live.amcharts.com/",
+        "provider_name": "amCharts",
+        "provider_url": "https://www.amcharts.com/",
         "endpoints": [
             {
                 "schemes": [
-                    "http://live.amcharts.com/*",
-                    "https://live.amcharts.com/*"
+                    "https://chart.amcharts.com/*/*"
                 ],
-                "url": "https://live.amcharts.com/oembed"
+                "url": "https://live.amcharts.com/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
             }
         ]
     },
@@ -1438,6 +1442,19 @@
         ]
     },
     {
+        "provider_name": "EveryPage",
+        "provider_url": "https://everypage.co",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://everypage.co/*"
+                ],
+                "url": "https://everypage.co/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Facebook",
         "provider_url": "https://www.facebook.com/",
         "endpoints": [
@@ -2401,6 +2418,20 @@
                 "formats": [
                     "json"
                 ]
+            }
+        ]
+    },
+    {
+        "provider_name": "Keystone Practice",
+        "provider_url": "https://keystonepractice.co",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://keystonepractice.co/tools/*",
+                    "https://keystonepractice.co/embed/*"
+                ],
+                "url": "https://keystonepractice.co/api/oembed",
+                "discovery": true
             }
         ]
     },
@@ -3914,6 +3945,27 @@
         ]
     },
     {
+        "provider_name": "Scibly",
+        "provider_url": "https://www.scibly.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://app.scibly.com/public/courses/*",
+                    "https://app.scibly.com/embed/courses/*",
+                    "https://app.scibly.com/en/public/courses/*",
+                    "https://app.scibly.com/en/embed/courses/*",
+                    "https://app.scibly.com/de/public/courses/*",
+                    "https://app.scibly.com/de/embed/courses/*"
+                ],
+                "url": "https://app.scibly.com/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Screen9",
         "provider_url": "http://www.screen9.com/",
         "endpoints": [
@@ -4599,6 +4651,8 @@
                 "schemes": [
                     "https://tegula.io/m/*",
                     "https://www.tegula.io/m/*",
+                    "https://tegula.io/c/*",
+                    "https://www.tegula.io/c/*",
                     "https://tegula.io/cat.html?model=*",
                     "https://www.tegula.io/cat.html?model=*"
                 ],
