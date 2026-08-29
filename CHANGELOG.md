@@ -5,6 +5,7 @@
 ### Changed
 
 - Include changed provider names in automated update pull requests and commits
+- Group dependency updates into one pull request per ecosystem
 
 ## [0.3.9](https://github.com/leandrocp/req_embed/compare/v0.3.8...v0.3.9) (2026-07-30)
 

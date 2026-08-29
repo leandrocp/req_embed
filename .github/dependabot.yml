@@ -5,8 +5,14 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      mix-dependencies:
+        patterns: ["*"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      github-actions-dependencies:
+        patterns: ["*"]
