@@ -1,7 +1,5 @@
 # Changelog
 
-## Unreleased
-
 ## [0.3.10](https://github.com/leandrocp/req_embed/compare/v0.3.9...v0.3.10) (2026-08-29)
 
 ### Changed
