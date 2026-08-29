@@ -2,10 +2,18 @@
 
 ## Unreleased
 
+## [0.3.10](https://github.com/leandrocp/req_embed/compare/v0.3.9...v0.3.10) (2026-08-29)
+
 ### Changed
 
 - Include changed provider names in automated update pull requests and commits
 - Group dependency updates into one pull request per ecosystem
+
+### Features
+
+- Update providers: Slidesfly, Tegula, u-poll by @leandrocp in [#93](https://github.com/leandrocp/req_embed/pull/93)
+- Update providers: Castle, Mirame360 by @leandrocp in [#97](https://github.com/leandrocp/req_embed/pull/97)
+- Update providers: EveryPage, Keystone Practice, Scibly, Tegula, amCharts, amCharts Live Editor by @leandrocp in [#98](https://github.com/leandrocp/req_embed/pull/98)
 
 ## [0.3.9](https://github.com/leandrocp/req_embed/compare/v0.3.8...v0.3.9) (2026-07-30)
 
