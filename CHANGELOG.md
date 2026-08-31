@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.11](https://github.com/leandrocp/req_embed/compare/v0.3.10...v0.3.11) (2026-08-31)
+
+### Features
+
+- Update providers: 1mind, Marbella Wire, WPPaste, Wikitólica by @leandrocp in [#104](https://github.com/leandrocp/req_embed/pull/104)
+
 ## [0.3.10](https://github.com/leandrocp/req_embed/compare/v0.3.9...v0.3.10) (2026-08-29)
 
 ### Changed
