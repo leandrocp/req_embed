@@ -7,27 +7,24 @@ defmodule ReqEmbedTest do
     end
 
     test "format" do
-      assert [
-               %{
-                 name: "23HQ",
-                 url: "http://www.23hq.com",
-                 endpoints: [
-                   %{
-                     url: %URI{
-                       scheme: "http",
-                       userinfo: nil,
-                       host: "www.23hq.com",
-                       port: 80,
-                       path: "/23/oembed",
-                       query: nil,
-                       fragment: nil
-                     },
-                     schemes: ["http://www\\.23hq\\.com/.*/photo/.*"]
-                   }
-                 ]
-               }
-               | _
-             ] = ReqEmbed.Providers.all()
+      assert %{
+               name: "23HQ",
+               url: "http://www.23hq.com",
+               endpoints: [
+                 %{
+                   url: %URI{
+                     scheme: "http",
+                     userinfo: nil,
+                     host: "www.23hq.com",
+                     port: 80,
+                     path: "/23/oembed",
+                     query: nil,
+                     fragment: nil
+                   },
+                   schemes: ["http://www\\.23hq\\.com/.*/photo/.*"]
+                 }
+               ]
+             } = Enum.find(ReqEmbed.Providers.all(), &(&1.name == "23HQ"))
     end
 
     test "get_by_url returns provider when URL matches scheme" do
