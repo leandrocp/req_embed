@@ -1,5 +1,24 @@
 [
     {
+        "provider_name": "1mind",
+        "provider_url": "https://1mind.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://app.1mind.com/embed/*",
+                    "https://app.1mind.com/embed/*/*",
+                    "https://app.dev.1mind.com/embed/*",
+                    "https://app.dev.1mind.com/embed/*/*"
+                ],
+                "url": "https://app.1mind.com/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "23HQ",
         "provider_url": "http://www.23hq.com",
         "endpoints": [
@@ -2736,6 +2755,22 @@
         ]
     },
     {
+        "provider_name": "Marbella Wire",
+        "provider_url": "https://marbellawire.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://marbellawire.com/*"
+                ],
+                "url": "https://api.marbellawire.com/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "marimo",
         "provider_url": "https://marimo.io/",
         "endpoints": [
@@ -5396,6 +5431,23 @@
         ]
     },
     {
+        "provider_name": "Wikit\u00f3lica",
+        "provider_url": "https://www.wikitolica.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.wikitolica.com/*/*/"
+                ],
+                "url": "https://www.wikitolica.com/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Wistia, Inc.",
         "provider_url": "https://wistia.com/",
         "endpoints": [
@@ -5485,6 +5537,23 @@
                 ],
                 "url": "https://www.worldeventtrading.com/api/oembed",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "WPPaste",
+        "provider_url": "https://wppaste.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://wppaste.com/p/*"
+                ],
+                "url": "https://wppaste.com/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
             }
         ]
     },
