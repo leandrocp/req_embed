@@ -2481,20 +2481,6 @@
         ]
     },
     {
-        "provider_name": "Kit",
-        "provider_url": "https://kit.co/",
-        "endpoints": [
-            {
-                "schemes": [
-                    "http://kit.co/*/*",
-                    "https://kit.co/*/*"
-                ],
-                "url": "https://embed.kit.co/oembed",
-                "discovery": true
-            }
-        ]
-    },
-    {
         "provider_name": "Kitchenbowl",
         "provider_url": "http://www.kitchenbowl.com",
         "endpoints": [
@@ -5148,6 +5134,23 @@
         ]
     },
     {
+        "provider_name": "Vectree",
+        "provider_url": "https://vectree.io/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://vectree.io/c/*",
+                    "http://vectree.io/c/*"
+                ],
+                "url": "https://vectree.io/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "VEVO",
         "provider_url": "http://www.vevo.com/",
         "endpoints": [
@@ -5171,6 +5174,19 @@
                 ],
                 "url": "https://videfit.com/oembed",
                 "discovery": false
+            }
+        ]
+    },
+    {
+        "provider_name": "Videobot",
+        "provider_url": "https://videobot.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://videobot.com/embed/*"
+                ],
+                "url": "https://videobot.com/embed/oembed",
+                "discovery": true
             }
         ]
     },
@@ -5361,6 +5377,19 @@
         ]
     },
     {
+        "provider_name": "WATCHPEOPLEFIGHT",
+        "provider_url": "https://watchpeoplefight.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://watchpeoplefight.com/watch/*"
+                ],
+                "url": "https://watchpeoplefight.com/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Wave.video",
         "provider_url": "https://wave.video",
         "endpoints": [
@@ -5426,6 +5455,22 @@
                     "https://whimsical.com/*/*"
                 ],
                 "url": "https://whimsical.com/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Whyp",
+        "provider_url": "https://whyp.it/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://whyp.it/tracks/*",
+                    "https://whyp.it/collections/*",
+                    "https://www.whyp.it/tracks/*",
+                    "https://www.whyp.it/collections/*"
+                ],
+                "url": "https://api.whyp.it/api/oembed",
                 "discovery": true
             }
         ]
