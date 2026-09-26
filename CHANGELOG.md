@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.13](https://github.com/leandrocp/req_embed/compare/v0.3.12...v0.3.13) (2026-09-26)
+
+### Features
+
+- Update providers: Puzzel.org, Tuvelia by @leandrocp in [#112](https://github.com/leandrocp/req_embed/pull/112)
+
 ## [0.3.12](https://github.com/leandrocp/req_embed/compare/v0.3.11...v0.3.12) (2026-09-26)
 
 ### Features
