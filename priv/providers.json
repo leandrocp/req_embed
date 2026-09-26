@@ -3676,6 +3676,23 @@
         ]
     },
     {
+        "provider_name": "Puzzel.org",
+        "provider_url": "https://puzzel.org/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://puzzel.org/*/*/play?p=*",
+                    "https://puzzel.org/*/*/embed?p=*"
+                ],
+                "url": "https://puzzel.org/api/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Pyzia",
         "provider_url": "https://www.pyzia.app/",
         "endpoints": [
@@ -4986,6 +5003,20 @@
                     "https://*.tumblr.com/post/*"
                 ],
                 "url": "https://www.tumblr.com/oembed/1.0"
+            }
+        ]
+    },
+    {
+        "provider_name": "Tuvelia",
+        "provider_url": "https://tuvelia.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://tuvelia.com/embed/*",
+                    "https://www.tuvelia.com/embed/*"
+                ],
+                "url": "https://tuvelia.com/oembed",
+                "discovery": true
             }
         ]
     },
