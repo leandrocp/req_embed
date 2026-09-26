@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.12](https://github.com/leandrocp/req_embed/compare/v0.3.11...v0.3.12) (2026-09-26)
+
+### Features
+
+- Update providers: BudgetPixel, Elupedia, Kit, Vectree, Videobot, Vizzlo, WATCHPEOPLEFIGHT, Waltrack, Whyp, YouPickBest, frequencing by @leandrocp in [#108](https://github.com/leandrocp/req_embed/pull/108)
+
 ## [0.3.11](https://github.com/leandrocp/req_embed/compare/v0.3.10...v0.3.11) (2026-08-31)
 
 ### Features
