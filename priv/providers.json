@@ -404,6 +404,20 @@
         ]
     },
     {
+        "provider_name": "AudioSFX",
+        "provider_url": "https://audiosfx.org/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://audiosfx.org/audio/*",
+                    "https://audiosfx.org/playlist/*"
+                ],
+                "url": "https://audiosfx.org/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Audius",
         "provider_url": "https://audius.co",
         "endpoints": [
@@ -1867,6 +1881,20 @@
                 "schemes": [
                     "https://www.gifnote.com/play/*"
                 ],
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "GigNGo",
+        "provider_url": "https://gigngo.org/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://gigngo.org/watch/*",
+                    "https://gigngo.org/embed/*"
+                ],
+                "url": "https://gigngo.org/oembed",
                 "discovery": true
             }
         ]
