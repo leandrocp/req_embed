@@ -62,7 +62,8 @@
         "endpoints": [
             {
                 "schemes": [
-                    "https://play.acast.com/s/*"
+                    "https://play.acast.com/s/*",
+                    "https://shows.acast.com/*/episodes/*"
                 ],
                 "url": "https://oembed.acast.com/v1/embed-player",
                 "discovery": true,
@@ -400,6 +401,20 @@
                 "formats": [
                     "json"
                 ]
+            }
+        ]
+    },
+    {
+        "provider_name": "AudioSFX",
+        "provider_url": "https://audiosfx.org/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://audiosfx.org/audio/*",
+                    "https://audiosfx.org/playlist/*"
+                ],
+                "url": "https://audiosfx.org/api/oembed",
+                "discovery": true
             }
         ]
     },
@@ -1384,6 +1399,22 @@
         ]
     },
     {
+        "provider_name": "Election Tracker",
+        "provider_url": "https://electiontracker.eu",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://electiontracker.eu/*"
+                ],
+                "url": "https://electiontracker.eu/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "ElevenLabs",
         "provider_url": "https://elevenlabs.io/",
         "endpoints": [
@@ -1867,6 +1898,20 @@
                 "schemes": [
                     "https://www.gifnote.com/play/*"
                 ],
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "GigNGo",
+        "provider_url": "https://gigngo.org/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://gigngo.org/watch/*",
+                    "https://gigngo.org/embed/*"
+                ],
+                "url": "https://gigngo.org/oembed",
                 "discovery": true
             }
         ]
@@ -2881,6 +2926,22 @@
                 ],
                 "url": "https://medienarchiv.zhdk.ch/oembed.{format}",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "MemeStack",
+        "provider_url": "https://memestack.ai/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://memestack.ai/gallery/*"
+                ],
+                "url": "https://api.memestack.ai/v1/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
