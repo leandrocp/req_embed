@@ -44,6 +44,25 @@
         ]
     },
     {
+        "provider_name": "3Speak",
+        "provider_url": "https://3speak.tv/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://3speak.tv/watch?v=*",
+                    "https://www.3speak.tv/watch?v=*",
+                    "https://3speak.tv/shorts?v=*",
+                    "https://www.3speak.tv/shorts?v=*"
+                ],
+                "url": "https://3speak.tv/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Abraia",
         "provider_url": "https://abraia.me",
         "endpoints": [
@@ -62,7 +81,8 @@
         "endpoints": [
             {
                 "schemes": [
-                    "https://play.acast.com/s/*"
+                    "https://play.acast.com/s/*",
+                    "https://shows.acast.com/*/episodes/*"
                 ],
                 "url": "https://oembed.acast.com/v1/embed-player",
                 "discovery": true,
@@ -404,6 +424,20 @@
         ]
     },
     {
+        "provider_name": "AudioSFX",
+        "provider_url": "https://audiosfx.org/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://audiosfx.org/audio/*",
+                    "https://audiosfx.org/playlist/*"
+                ],
+                "url": "https://audiosfx.org/api/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Audius",
         "provider_url": "https://audius.co",
         "endpoints": [
@@ -555,6 +589,26 @@
                     "https://bsky.app/profile/*/post/*"
                 ],
                 "url": "https://embed.bsky.app/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "BondByIsin",
+        "provider_url": "https://bondbyisin.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://bondbyisin.com/bond/*",
+                    "https://bondbyisin.com/swap-curves*",
+                    "https://bondbyisin.com/embed/bond-price/*",
+                    "https://bondbyisin.com/embed/swap-curve*",
+                    "https://www.bondbyisin.com/bond/*",
+                    "https://www.bondbyisin.com/swap-curves*",
+                    "https://www.bondbyisin.com/embed/bond-price/*",
+                    "https://www.bondbyisin.com/embed/swap-curve*"
+                ],
+                "url": "https://bondbyisin.com/oembed",
                 "discovery": true
             }
         ]
@@ -715,6 +769,22 @@
                     "https://cacoo.com/diagrams/*"
                 ],
                 "url": "http://cacoo.com/oembed.{format}"
+            }
+        ]
+    },
+    {
+        "provider_name": "CalGet",
+        "provider_url": "https://calget.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://calget.com/calendar-embed/*"
+                ],
+                "url": "https://calget.com/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -1189,6 +1259,24 @@
         ]
     },
     {
+        "provider_name": "Debatr",
+        "provider_url": "https://debatr.tv/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://debatr.tv/d/*",
+                    "https://debatr.tv/t/*",
+                    "https://debatr.tv/embed/*"
+                ],
+                "url": "https://debatr.tv/api/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Demofly",
         "provider_url": "https://demofly.ai/",
         "endpoints": [
@@ -1380,6 +1468,22 @@
                 ],
                 "url": "http://egliseinfo.catholique.fr/api/oembed",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Election Tracker",
+        "provider_url": "https://electiontracker.eu",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://electiontracker.eu/*"
+                ],
+                "url": "https://electiontracker.eu/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -1867,6 +1971,20 @@
                 "schemes": [
                     "https://www.gifnote.com/play/*"
                 ],
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "GigNGo",
+        "provider_url": "https://gigngo.org/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://gigngo.org/watch/*",
+                    "https://gigngo.org/embed/*"
+                ],
+                "url": "https://gigngo.org/oembed",
                 "discovery": true
             }
         ]
@@ -2885,6 +3003,22 @@
         ]
     },
     {
+        "provider_name": "MemeStack",
+        "provider_url": "https://memestack.ai/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://memestack.ai/gallery/*"
+                ],
+                "url": "https://api.memestack.ai/v1/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Mermaid Ink",
         "provider_url": "https://mermaid.ink",
         "endpoints": [
@@ -3210,6 +3344,23 @@
                 ],
                 "url": "http://www.nfb.ca/remote/services/oembed/",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Northwest Falls",
+        "provider_url": "https://northwestfalls.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://northlink.cc/t/*",
+                    "https://northlink.cc/r/*",
+                    "https://northlink.cc/@*"
+                ],
+                "url": "https://northlink.cc/oembed",
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -4862,6 +5013,23 @@
         ]
     },
     {
+        "provider_name": "TixFox",
+        "provider_url": "https://tixfox.co/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://tixfox.co/e/*",
+                    "https://tixfox.co/o/*"
+                ],
+                "url": "https://tixfox.co/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "tksn-me",
         "provider_url": "https://tksn.me",
         "endpoints": [
@@ -5077,20 +5245,6 @@
         ]
     },
     {
-        "provider_name": "TypeCast",
-        "provider_url": "https://typecast.ai",
-        "endpoints": [
-            {
-                "schemes": [
-                    "https://play.typecast.ai/s/*",
-                    "https://play.typecast.ai/e/*",
-                    "https://play.typecast.ai/*"
-                ],
-                "url": "https://play.typecast.ai/oembed"
-            }
-        ]
-    },
-    {
         "provider_name": "Typecel",
         "provider_url": "https://app.typecel.io",
         "endpoints": [
@@ -5225,6 +5379,23 @@
                 "formats": [
                     "json"
                 ]
+            }
+        ]
+    },
+    {
+        "provider_name": "VerseDB",
+        "provider_url": "https://versedb.com",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://versedb.com/title/*",
+                    "https://versedb.com/series/*",
+                    "https://versedb.com/issue/*",
+                    "https://versedb.com/event/*",
+                    "https://versedb.com/creator/*"
+                ],
+                "url": "https://versedb.com/oembed",
+                "discovery": true
             }
         ]
     },
