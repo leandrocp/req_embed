@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.3.14](https://github.com/leandrocp/req_embed/compare/v0.3.13...v0.3.14) (2026-10-26)
+
+### Features
+
+- Update providers: 3Speak, Acast, AudioSFX, BondByIsin, CalGet, Debatr, Election Tracker, GigNGo, MemeStack, Northwest Falls, TixFox, TypeCast, VerseDB in [\#115](https://github.com/leandrocp/req_embed/pull/115)
+
+### Other Changes
+
+- Configure Dependabot weekly updates for all ecosystems in [\#118](https://github.com/leandrocp/req_embed/pull/118)
+
 ## [0.3.13](https://github.com/leandrocp/req_embed/compare/v0.3.12...v0.3.13) (2026-09-26)
 
 ### Features
