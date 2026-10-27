@@ -3,3 +3,4 @@ reviews:
   auto_review:
     ignore_title_keywords:
       - "chore: release"
+      - "feat: update providers"
