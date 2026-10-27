@@ -1,11 +1,5 @@
 # Changelog
 
-## Unreleased
-
-### Changed
-
-- Skip automatic CodeRabbit reviews for provider-update pull requests
-
 ## [0.3.13](https://github.com/leandrocp/req_embed/compare/v0.3.12...v0.3.13) (2026-09-26)
 
 ### Features
