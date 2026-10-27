@@ -3814,19 +3814,6 @@
         ]
     },
     {
-        "provider_name": "Programmingly.dev",
-        "provider_url": "https://programmingly.dev",
-        "endpoints": [
-            {
-                "schemes": [
-                    "https://programmingly.dev/snippets/*"
-                ],
-                "url": "https://programmingly.dev/api/oembed",
-                "discovery": true
-            }
-        ]
-    },
-    {
         "provider_name": "Puzzel.org",
         "provider_url": "https://puzzel.org/",
         "endpoints": [
