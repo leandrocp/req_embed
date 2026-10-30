@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.15](https://github.com/leandrocp/req_embed/compare/v0.3.14...v0.3.15) (2026-10-30)
+
+### Features
+
+- Update providers: Programmingly.dev in [\#121](https://github.com/leandrocp/req_embed/pull/121)
+
 ## [0.3.14](https://github.com/leandrocp/req_embed/compare/v0.3.13...v0.3.14) (2026-10-26)
 
 ### Features
