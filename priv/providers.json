@@ -1802,6 +1802,23 @@
         ]
     },
     {
+        "provider_name": "Fomr",
+        "provider_url": "https://fomr.io",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://fomr.io/s/*",
+                    "https://www.fomr.io/s/*"
+                ],
+                "url": "https://api.fomr.io/public/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Fooday",
         "provider_url": "https://fooday.app",
         "endpoints": [
@@ -1909,7 +1926,8 @@
                 "schemes": [
                     "https://frequencing.com/track/*",
                     "https://frequencing.com/post/*",
-                    "https://frequencing.com/user/*/playlists/*"
+                    "https://frequencing.com/user/*/playlists/*",
+                    "https://frequencing.com/groups/*"
                 ],
                 "url": "https://frequencing.com/api/oembed",
                 "discovery": true
@@ -1925,6 +1943,27 @@
                     "https://fritube.ch/v/*"
                 ],
                 "url": "https://fritube.ch/services/oembed",
+                "discovery": true,
+                "formats": [
+                    "json",
+                    "xml"
+                ]
+            }
+        ]
+    },
+    {
+        "provider_name": "GenToon",
+        "provider_url": "https://www.gentoon.ai",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.gentoon.ai/community/posts/*",
+                    "https://www.gentoon.ai/*/community/posts/*",
+                    "https://gentoon.ai/community/posts/*",
+                    "https://gentoon.ai/*/community/posts/*",
+                    "https://www.gentoon.ai/embed/post/*"
+                ],
+                "url": "https://www.gentoon.ai/api/oembed",
                 "discovery": true,
                 "formats": [
                     "json",
@@ -2126,6 +2165,22 @@
                 ],
                 "url": "https://api.hash.ai/oembed",
                 "discovery": false
+            }
+        ]
+    },
+    {
+        "provider_name": "HDRSHOW",
+        "provider_url": "https://hdr.show/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://hdr.show/view/*"
+                ],
+                "url": "https://hdr.show/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -2486,7 +2541,11 @@
                     "http://instagram.com/reel/*",
                     "https://instagram.com/reel/*",
                     "http://instagr.am/reel/*",
-                    "https://instagr.am/reel/*"
+                    "https://instagr.am/reel/*",
+                    "http://www.instagram.com/*/reel/*",
+                    "https://www.instagram.com/*/reel/*",
+                    "http://instagram.com/*/reel/*",
+                    "https://instagram.com/*/reel/*"
                 ],
                 "url": "https://graph.facebook.com/v16.0/instagram_oembed",
                 "formats": [
@@ -2744,7 +2803,9 @@
         "endpoints": [
             {
                 "schemes": [
+                    "https://www.laude.org/impact/*",
                     "https://laude.org/impact/*",
+                    "https://www.laude.org/im/*",
                     "https://laude.org/im/*"
                 ],
                 "url": "http://laude.org/api/oembed",
@@ -2752,6 +2813,24 @@
                 "formats": [
                     "json"
                 ]
+            }
+        ]
+    },
+    {
+        "provider_name": "LeagueMakerApp",
+        "provider_url": "https://leaguemakerapp.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://leaguemakerapp.com/competitions/*",
+                    "https://leaguemakerapp.com/*/competitions/*",
+                    "https://leaguemakerapp.com/c/*",
+                    "https://www.leaguemakerapp.com/competitions/*",
+                    "https://www.leaguemakerapp.com/*/competitions/*",
+                    "https://www.leaguemakerapp.com/c/*"
+                ],
+                "url": "https://leaguemakerapp.com/oembed",
+                "discovery": true
             }
         ]
     },
@@ -2832,7 +2911,8 @@
         "endpoints": [
             {
                 "schemes": [
-                    "https://livid.com/watch/*"
+                    "https://livid.com/watch/*",
+                    "https://livid.com/showcase/*"
                 ],
                 "url": "https://livid.com/oembed",
                 "formats": [
@@ -3665,6 +3745,22 @@
         ]
     },
     {
+        "provider_name": "PicJury",
+        "provider_url": "https://picjury.app",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://picjury.app/p/*"
+                ],
+                "url": "https://picjury.app/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
+            }
+        ]
+    },
+    {
         "provider_name": "Pinpoll",
         "provider_url": "https://www.pinpoll.com/products/tools",
         "endpoints": [
@@ -3770,6 +3866,23 @@
                     "http://*.podbean.com/e/*"
                 ],
                 "url": "https://api.podbean.com/v1/oembed"
+            }
+        ]
+    },
+    {
+        "provider_name": "Podcast Pizza",
+        "provider_url": "https://podcast.pizza/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://podcast.pizza/shows/*",
+                    "https://www.podcast.pizza/shows/*"
+                ],
+                "url": "https://podcast.pizza/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -4942,6 +5055,24 @@
                 ],
                 "url": "https://www.nytimes.com/svc/oembed/json/",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "theprototype.app",
+        "provider_url": "https://theprototype.app/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://theprototype.app/s/*",
+                    "https://theprototype.app/e/*",
+                    "https://theprototype.app/p/*"
+                ],
+                "url": "https://theprototype.app/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
