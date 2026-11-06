@@ -23,7 +23,9 @@ jobs:
       - uses: actions/checkout@v7.0.1
 
       - name: Setup Just
-        uses: taiki-e/install-action@just
+        uses: taiki-e/install-action@v2.90.1
+        with:
+          tool: just
 
       - name: Run vendor-providers
         run: just vendor-providers
