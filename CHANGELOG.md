@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+
+- Pin the Just installer to a versioned release to prevent workflow lockfile verification failures.
+
 ## [0.3.14](https://github.com/leandrocp/req_embed/compare/v0.3.13...v0.3.14) (2026-10-26)
 
 ### Features
