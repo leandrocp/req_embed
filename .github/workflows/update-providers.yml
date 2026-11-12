@@ -48,7 +48,7 @@ jobs:
 
       - name: Create Pull Request
         if: ${{ env.CI_TOKEN != '' }}
-        uses: peter-evans/create-pull-request@v8.1.1
+        uses: peter-evans/create-pull-request@v8.1.2
         with:
           token: ${{ env.CI_TOKEN }}
           add-paths: |
