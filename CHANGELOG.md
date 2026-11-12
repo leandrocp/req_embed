@@ -2,9 +2,16 @@
 
 ## Unreleased
 
+## [0.3.15](https://github.com/leandrocp/req_embed/compare/v0.3.14...v0.3.15) (2026-11-12)
+
 ### Fixed
 
 - Pin the Just installer to a versioned release to prevent workflow lockfile verification failures.
+
+### Features
+
+- Update providers: Programmingly.dev in [\#121](https://github.com/leandrocp/req_embed/pull/121)
+- Update providers: Fomr, GenToon, HDRSHOW, Instagram, Laude, LeagueMakerApp, Livid, PicJury, Podcast Pizza, frequencing, theprototype.app in [\#133](https://github.com/leandrocp/req_embed/pull/133)
 
 ## [0.3.14](https://github.com/leandrocp/req_embed/compare/v0.3.13...v0.3.14) (2026-10-26)
 
