@@ -10,7 +10,7 @@ workflows:
     '.github/workflows/update-providers.yml':
         - 'actions/checkout@v7.0.1'
         - 'peter-evans/create-pull-request@v8.1.2'
-        - 'taiki-e/install-action@v2.90.1'
+        - 'taiki-e/install-action@v2.90.3'
 dependencies:
     'actions/checkout@v7.0.1':
         ref: 'v7.0.1'
@@ -22,8 +22,8 @@ dependencies:
         commit: 'sha1-15733dbdfeedb4f7fdb73d13c6f5ac83b710fab8'
         owner_id: 18365890
         repo_id: 197176365
-    'taiki-e/install-action@v2.90.1':
-        ref: 'v2.90.1'
-        commit: 'sha1-c509219cf42fba86913069efd0ade2458c59337b'
+    'taiki-e/install-action@v2.90.3':
+        ref: 'v2.90.3'
+        commit: 'sha1-cfdb7ed4ccc7c7dce37759eae89dc5674b469b39'
         owner_id: 43724913
         repo_id: 442947557
