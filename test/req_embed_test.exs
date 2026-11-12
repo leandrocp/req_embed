@@ -197,14 +197,17 @@ defmodule ReqEmbedTest do
     end
   end
 
+  # Giphy is called live and its reported dimensions and media host change over time,
+  # so match any numeric width/height and mediaN host instead of pinning current values.
+  defp giphy_img do
+    ~r|<img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="\d+" loading="lazy" src="https://media\d*\.giphy\.com/media/pR8zHItvQDvBC/giphy\.gif" width="\d+" />|
+  end
+
   describe "html: image" do
     test "render" do
       html = ReqEmbed.html("https://giphy.com/gifs/need-pR8zHItvQDvBC")
 
-      assert html =~
-               ~s|<img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src=|
-
-      assert html =~ ~s|giphy.com/media/pR8zHItvQDvBC/giphy.gif|
+      assert html =~ giphy_img()
       assert html =~ ~s|<figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>|
     end
 
@@ -269,10 +272,7 @@ defmodule ReqEmbedTest do
           """
           |> Phoenix.LiveViewTest.rendered_to_string()
 
-        assert html =~
-                 ~s|<img alt="Terry Crews Need GIF - Find &amp; Share on GIPHY" height="281" loading="lazy" src=|
-
-        assert html =~ ~s|giphy.com/media/pR8zHItvQDvBC/giphy.gif|
+        assert html =~ giphy_img()
 
         assert html =~
                  ~s|<figcaption>Terry Crews Need GIF - Find &amp; Share on GIPHY</figcaption>|
