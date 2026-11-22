@@ -315,6 +315,22 @@
         ]
     },
     {
+        "provider_name": "AssistLoop",
+        "provider_url": "https://assistloop.ai",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://assistloop.ai/embed/canva/*"
+                ],
+                "url": "https://assistloop.ai/api/oembed",
+                "formats": [
+                    "json"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "Atlantis Data Solutions",
         "provider_url": "https://atlantisdatasolutions.com/",
         "endpoints": [
@@ -830,6 +846,23 @@
                 ],
                 "url": "https://carbonvoice.app/api/oembed",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Cassetta",
+        "provider_url": "https://www.cassetta.fm",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.cassetta.fm/post/*",
+                    "https://cassetta.fm/post/*"
+                ],
+                "url": "https://www.cassetta.fm/api/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
@@ -1664,6 +1697,19 @@
         ]
     },
     {
+        "provider_name": "Faxo",
+        "provider_url": "https://faxo.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://faxo.com/*"
+                ],
+                "url": "https://faxo.com/oembed",
+                "discovery": true
+            }
+        ]
+    },
+    {
         "provider_name": "FazenHaus",
         "provider_url": "https://haus.fazen.co/",
         "endpoints": [
@@ -2373,12 +2419,16 @@
     },
     {
         "provider_name": "Ignite",
-        "provider_url": "https://ignite.video/",
+        "provider_url": "https://www.ignite.video/",
         "endpoints": [
             {
                 "schemes": [
                     "https://*.videocdn.net/player/*",
-                    "https://*.euvideocdn.com/player/*"
+                    "https://*.videocdn.net/watch/video/*",
+                    "https://*.videocdn.net/watch/live/*",
+                    "https://*.euvideocdn.com/player/*",
+                    "https://*.euvideocdn.com/watch/video/*",
+                    "https://*.euvideocdn.com/watch/live/*"
                 ],
                 "url": "https://app.ignitevideo.cloud/api/oembed",
                 "discovery": true
@@ -2391,7 +2441,11 @@
         "endpoints": [
             {
                 "schemes": [
-                    "https://www.iheart.com/podcast/*/*"
+                    "https://www.iheart.com/podcast/*",
+                    "https://www.iheart.com/live/*",
+                    "https://www.iheart.com/artist/*",
+                    "https://www.iheart.com/playlist/*",
+                    "https://www.iheart.com/favorites/*"
                 ],
                 "url": "https://www.iheart.com/oembed",
                 "discovery": true
@@ -2918,6 +2972,24 @@
                 "formats": [
                     "json",
                     "xml"
+                ],
+                "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Long Play",
+        "provider_url": "https://longplayplatform.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://longplayplatform.com/browse/*",
+                    "https://longplayplatform.com/embed/*",
+                    "https://longplayplatform.com/u/*/c/*"
+                ],
+                "url": "https://longplayplatform.com/oembed",
+                "formats": [
+                    "json"
                 ],
                 "discovery": true
             }
@@ -4838,7 +4910,7 @@
                 "schemes": [
                     "https://streetartcities.com/markers/*"
                 ],
-                "url": "https://oembed.streetartcities.com/oembed"
+                "url": "https://streetartcities.com/oembed"
             }
         ]
     },
@@ -5002,10 +5074,12 @@
     },
     {
         "provider_name": "Tella",
-        "provider_url": "https://www.tella.tv/",
+        "provider_url": "https://www.tella.com/",
         "endpoints": [
             {
                 "schemes": [
+                    "https://www.tella.com/video/*",
+                    "https://tella.com/video/*",
                     "https://www.tella.tv/video/*",
                     "https://tella.video/*"
                 ],
@@ -5086,6 +5160,29 @@
                 ],
                 "url": "https://theysaidso.com/extensions/oembed/",
                 "discovery": true
+            }
+        ]
+    },
+    {
+        "provider_name": "Threads",
+        "provider_url": "https://www.threads.com/",
+        "endpoints": [
+            {
+                "schemes": [
+                    "https://www.threads.com/*/post/*",
+                    "https://threads.com/*/post/*",
+                    "https://www.threads.com/t/*",
+                    "https://threads.com/t/*",
+                    "https://www.threads.net/*/post/*",
+                    "https://threads.net/*/post/*",
+                    "https://www.threads.net/t/*",
+                    "https://threads.net/t/*"
+                ],
+                "url": "https://graph.threads.com/v1.0/oembed",
+                "discovery": true,
+                "formats": [
+                    "json"
+                ]
             }
         ]
     },
